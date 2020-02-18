@@ -14,6 +14,7 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'carrierwave', '~> 2.0'
 
 gem 'devise'
 
