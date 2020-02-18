@@ -1,7 +1,7 @@
 puts "Destroying the old database"
-GameSession.destroy_all
 User.destroy_all
 Game.destroy_all
+GameSession.destroy_all
 puts "All the old database has been deleted"
 puts "Creating new users..."
 user1 = User.create!(email: "aaaaa@aaaaa.fr",password: "123456", city: "bordeaux")
