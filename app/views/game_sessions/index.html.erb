@@ -1,0 +1,7 @@
+<p>la vue avec la liste</p>
+
+<% @game_sessions.each do |game_session| %>
+  <p><%= game_session.game.name %></p>
+  <p><%= game_session.date %></p>
+  <p><%= game_session.creator.email %></p>
+<% end %>
