@@ -4,6 +4,7 @@ class GameSessionsController < ApplicationController
 
   def index
     @game_sessions = GameSession.all
+    @image_placeholder = "https://avatarfiles.alphacoders.com/164/164836.jpg"
   end
 
   def show

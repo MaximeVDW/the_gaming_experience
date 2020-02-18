@@ -1,6 +1,4 @@
 
-
-
 <div class="cards">
   <% @game_sessions.each do |game_session| %>
   <div class="card">
@@ -9,10 +7,12 @@
         <div class="card-game-name"><%= game_session.game.name %></div>
         <div class="card-game-description">game_session.game.description</div>
         <div class="card-price">game_session.price</div>
-        <div class="card-avatar">game_session.creator.</div>
+        <% if game_session.creator.photo.attached? %>
+          <div class="card-avatar" style="background-image:url('<%= cl_image_path game_session.creator.photo.key %>')"></div>
+        <% else %>
+          <div class="card-avatar" style="background-image:url('<%= @image_placeholder %>')"></div>
+        <% end %>
       </div>
     </div>
   <% end %>
 </div>
-
-
