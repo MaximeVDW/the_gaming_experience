@@ -3,7 +3,11 @@ class GameSessionsController < ApplicationController
   before_action :set_game_session, only: [:show, :edit, :update]
 
   def index
-    @game_sessions = GameSession.all
+    if params[:query] == nil || params[:query] == ""
+      @game_sessions = GameSession.all
+    else
+      @game_sessions = GameSession.search_by_city_and_date(params[:query])
+    end
   end
 
   def show
@@ -25,6 +29,10 @@ class GameSessionsController < ApplicationController
 
   def set_game_session
     @game_session = GameSession.find(params[:id])
+  end
+
+  def search()
+    @game_sessions = PgSearch.multisearch('superman')
   end
 end
 
