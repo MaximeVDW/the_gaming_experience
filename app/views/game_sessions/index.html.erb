@@ -1,7 +1,18 @@
-<p>la vue avec la liste</p>
 
-<% @game_sessions.each do |game_session| %>
-  <p><%= game_session.game.name %></p>
-  <p><%= game_session.date %></p>
-  <p><%= game_session.creator.email %></p>
-<% end %>
+
+
+<div class="cards">
+  <% @game_sessions.each do |game_session| %>
+  <div class="card">
+      <div class="card-date"><%= game_session.date %></div>
+      <div class="card-details">
+        <div class="card-game-name"><%= game_session.game.name %></div>
+        <div class="card-game-description">game_session.game.description</div>
+        <div class="card-price">game_session.price</div>
+        <div class="card-avatar">game_session.creator.</div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
