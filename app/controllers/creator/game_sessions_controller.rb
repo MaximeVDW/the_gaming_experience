@@ -10,16 +10,26 @@ class Creator::GameSessionsController < ApplicationController
 
   def create
     @game_session = GameSession.new(game_session_params)
+    @creator = current_user.first_name
+    @game_session.creator = @creator
     if @game_session.save
-      redirect_to creator_game_sessions_path
+      redirect_to player_game_sessions_path
     else
-      render new_creator_game_session
+      render :new
     end
   end
 
   private
   def game_session_params
-    params.require(:game_session).permit(:game, :date, :booked, :price, :creator)
+    params.require(:game_session).permit(:game, :date, :booked, :price, :creator, :city)
   end
 
 end
+
+
+
+
+
+
+
+
