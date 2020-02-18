@@ -29,5 +29,17 @@ GameSession.create!(game: game2, creator: user3, date: Time.now + (1.7*7*24*60*6
 GameSession.create!(game: game5, creator: user3, date: Time.now + (2.1*7*24*60*60), price: 7)
 GameSession.create!(game: game5, creator: user4, date: Time.now + (2*7*24*60*60), price: 5)
 GameSession.create!(game: game4, creator: user5, date: Time.now + (2*7*24*60*60), price: 6)
+
+GameSession.create!(game: game5, creator: user2, player: user1, date: Time.now + (1*7*24*60*60), price: 100)
+GameSession.create!(game: game5, creator: user3, player: user1, date: Time.now + (1.5*7*24*60*60), price: 1)
+GameSession.create!(game: game4, creator: user4, player: user1, date: Time.now + (2.6*7*24*60*60), price: 11)
+GameSession.create!(game: game4, creator: user1, player: user2, date: Time.now + (1.4*7*24*60*60), price: 29)
+GameSession.create!(game: game4, creator: user1, player: user2, date: Time.now + (2.2*7*24*60*60), price: 34)
+GameSession.create!(game: game4, creator: user3, player: user2, date: Time.now + (2.8*7*24*60*60), price: 28)
+GameSession.create!(game: game4, creator: user2, player: user3, date: Time.now + (2.1*7*24*60*60), price: 23)
+GameSession.create!(game: game2, creator: user4, player: user3, date: Time.now + (1.6*7*24*60*60), price: 21)
+GameSession.create!(game: game2, creator: user3, player: user4, date: Time.now + (2.6*7*24*60*60), price: 9)
+GameSession.create!(game: game1, creator: user4, player: user5, date: Time.now + (2.3*7*24*60*60), price: 3)
+GameSession.create!(game: game1, creator: user1, player: user5, date: Time.now + (3*7*24*60*60), price: 2)
 puts "Some game sessions have been created"
 puts "Congratulation, your database is clean and has some elements from the seed"
