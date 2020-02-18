@@ -10,9 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_02_18_100552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "game_sessions", force: :cascade do |t|
+    t.bigint "game_id"
+    t.date "date"
+    t.boolean "booked", default: false
+    t.integer "price"
+    t.bigint "creator_id"
+    t.bigint "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_game_sessions_on_creator_id"
+    t.index ["game_id"], name: "index_game_sessions_on_game_id"
+    t.index ["player_id"], name: "index_game_sessions_on_player_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "category"
+    t.integer "min_player"
+    t.integer "max_player"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "username"
+    t.string "phone_number"
+    t.string "bank_info"
+    t.string "street"
+    t.string "street_number"
+    t.string "postal_code"
+    t.string "city"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "game_sessions", "games"
 end
