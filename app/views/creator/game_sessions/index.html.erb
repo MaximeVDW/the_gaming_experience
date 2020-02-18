@@ -1,0 +1,6 @@
+<p>This page should display the game_sessions created by the current user</p>
+
+<% @game_sessions.each do |game_session| %>
+   <p><%= game_session.game.name %></p>
+   <p><%= game_session.date %></p>
+<% end %>
