@@ -1,5 +1,6 @@
 class Game < ApplicationRecord
   has_many :game_sessions
+  has_one_attached :photo
 
   validates :name, presence: true
   validates :description, presence: true
