@@ -1,0 +1,13 @@
+<div class="container pt-5">
+  <h1>Create you game-session</h1>
+  <br>
+  <br>
+  <div class="container">
+    <%= simple_form_for [@game_session] do |f| %>
+      <%= f.input :date %>
+      <%= f.input :game %>
+      <%= f.input :price %>
+      <%= f.submit "add a game-session", class: "btn-flat"%>
+    <% end %>
+  </div>
+</div>
