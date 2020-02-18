@@ -3,3 +3,12 @@
   width: 40px;
   height: 40px;
 }
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 10px;
+  width: 80%;
+  background-color: white;
+  box-shadow: 10px 10px 15px rgba(50, 50, 50, 0.3);
+}
