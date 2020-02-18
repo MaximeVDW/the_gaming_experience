@@ -15,12 +15,12 @@ class GameSessionsController < ApplicationController
 
   def update
     @game_session = GameSession.find(params[:id])
-    @game_session.update(params)
+    @game_session.update(game_session_params)
   end
 
   private
 
-  def params
+  def game_session_params
     params.require(:game_session).permit(:booked)
   end
 end
