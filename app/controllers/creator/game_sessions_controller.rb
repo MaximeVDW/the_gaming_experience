@@ -20,8 +20,9 @@ class Creator::GameSessionsController < ApplicationController
   end
 
   private
+
   def game_session_params
-    params.require(:game_session).permit(:game, :date, :booked, :price, :creator, :city)
+    params.require(:game_session).permit(:game, :date, :price, :creator, :city)
   end
 
 end
