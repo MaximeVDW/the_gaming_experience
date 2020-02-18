@@ -1,0 +1,44 @@
+.game-session-content {
+  position: relative;
+}
+
+.card-category {
+  height: 30%;
+}
+
+.game-session-show-title {
+  height: 50px;
+  background-color: #3E363F;
+  text-align: center;
+  color: white;
+  margin-top: 50px;
+  border-radius: 4px;
+  font-size: 32px;
+  border-bottom: 50px;
+}
+
+.game-session-show-img {
+  margin-top: 50px;
+}
+
+.game-session-show-content {
+  background-color: white;
+  text-align: center;
+  color: #3E363F;
+  margin-top: 50px;
+  border-radius: 4px;
+  font-size: 24px;
+}
+
+.flying-btn {
+  position: fixed;
+  bottom: 35%;
+  right: 50px;
+
+  a {
+    text-decoration: none;
+    background-color: #3E363F;
+    color: white;
+    padding: 10px;
+  }
+}
