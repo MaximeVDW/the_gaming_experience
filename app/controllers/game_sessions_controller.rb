@@ -8,6 +8,7 @@ class GameSessionsController < ApplicationController
     else
       @game_sessions = GameSession.search_by_city_and_date(params[:query])
     end
+    @image_placeholder = "https://avatarfiles.alphacoders.com/164/164836.jpg"
   end
 
   def show
