@@ -1,6 +1,11 @@
-<p>This page should display the game_sessions the current user asked to participate in</p>
-
-<% @game_sessions.each do |game_session| %>
-   <p><%= game_session.game.name %></p>
-   <p><%= game_session.date %></p>
-<% end %>
+<h1>Your futurs game sessions !</h1>
+<br>
+<br>
+<div class="cards">
+  <% @game_sessions.each do |game_session| %>
+    <div class="card">
+       <p><%= game_session.game.name %></p>
+       <p><%= game_session.date %></p>
+      </div>
+  <% end %>
+</div>
