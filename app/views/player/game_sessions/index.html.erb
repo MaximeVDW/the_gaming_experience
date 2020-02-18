@@ -1,6 +1,15 @@
-<h1>Your futurs game sessions !</h1>
+<div class="banner-dashboard" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="banner-container">
+    <h1>Dashboard</h1>
+  </div>
+</div>
 <br>
 <br>
+<div class="btn-dashboard-container">
+  <div class="btn-flat">
+    <%= link_to "Create a game-session", new_creator_game_session_path %>
+  </div>
+</div>
 <div class="cards">
   <% @game_sessions.each do |game_session| %>
     <div class="card">
