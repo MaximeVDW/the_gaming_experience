@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   namespace :creator do
       resources :game_sessions, only: [:index, :new, :create]
   end
+
+  resources :games
 end

@@ -11,12 +11,13 @@
     <div class="d-flex align-item-center justify-content-around game-session-show-img">
       <%= cl_image_tag("risk_i5wr26.jpg", width: 400, height: 300, crop: :fill) %>
       <div class="game-description">
+        <h4>Game description :</h4>
         <p><%= @game_session.game.description %></p>
       </div>
     </div>
 
     <div class="d-flex align-item-center justify-content-around game-session-show-content">
-      <p><%= @game_session.game.description %> avec <%= @game_session.game.min_player %> à <%= @game_session.game.max_player %> amis</p>
+      <p><%= @game_session.description %> avec <%= @game_session.game.min_player %> à <%= @game_session.game.max_player %> amis</p>
       <p>Hosted by : <%= @game_session.creator.email %></p>
       <p><%= @game_session.price %>euro</p>
     </div>
