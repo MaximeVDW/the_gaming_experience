@@ -1,0 +1,5 @@
+<p>welcome to the show of <%= @game.name %></p>
+<% if @game.photo.attached? %>
+  <%= cl_image_tag @game.photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+<%= link_to 'Edit the game details', edit_game_path(@game) %>
