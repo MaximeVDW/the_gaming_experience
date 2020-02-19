@@ -21,13 +21,12 @@ class GameSessionsController < ApplicationController
   end
 
   def update
-    player_id = current_user.id
-    if @game_session.update(player_id)
+    @game_session.player_id = current_user.id
+    if @game_session.update(game_session_params)
       redirect_to player_game_sessions_path
     else
       render :edit
     end
-    #ajout de render à prévoir
   end
 
   private

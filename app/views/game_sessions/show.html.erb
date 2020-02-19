@@ -22,7 +22,11 @@
     </div>
 
     <div class="flying-btn">
-      <%= link_to 'Book Session', edit_game_session_path %>
+      <% if @game_session.booked? %>
+        <%= link_to 'Already taken', game_session_path(@game_session) %>
+      <% else %>
+        <%= link_to 'Book Session', edit_game_session_path %>
+      <% end %>
     </div>
 
 
