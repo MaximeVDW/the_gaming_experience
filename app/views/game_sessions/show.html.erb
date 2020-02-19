@@ -1,18 +1,18 @@
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path "board_game_klnb2q.jpg", height: 300, width: 400, crop: :fill %>')">
-
-</div>
-
 
 <div class="container">
 
   <div class="game-session-content">
     <div class="d-flex align-item-center justify-content-around game-session-show-title">
-      <p><%= @game_session.date %></p>
       <p><%= @game_session.game.name %></p>
+      <p><%= @game_session.date %></p>
+      <p><%= @game_session.city %></p>
     </div>
 
     <div class="d-flex align-item-center justify-content-around game-session-show-img">
       <%= cl_image_tag("risk_i5wr26.jpg", width: 400, height: 300, crop: :fill) %>
+      <div class="game-description">
+        <p><%= @game_session.game.description %></p>
+      </div>
     </div>
 
     <div class="d-flex align-item-center justify-content-around game-session-show-content">
