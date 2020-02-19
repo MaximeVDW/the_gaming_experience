@@ -23,6 +23,20 @@ class Creator::GameSessionsController < ApplicationController
     end
   end
 
+  def edit
+    @game_session = GameSession.find(params[:id])
+  end
+
+  def update
+    raise
+    @game = Game.find(params[:id])
+    if @game_session.update(game_session_params)
+      redirect_to game_session_path(@game_session)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def game_session_params

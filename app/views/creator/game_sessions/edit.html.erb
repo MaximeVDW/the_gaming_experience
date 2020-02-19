@@ -1,0 +1,11 @@
+<p class="edit-title">O game Maaaster, you can modify the session :</p>
+
+<div class="container">
+  <%= simple_form_for @game_session do |f| %>
+    <%= f.input :description %>
+    <%= f.input :date %>
+    <%= f.input :price %>
+    <%= f.submit 'Update Game Session', class: "btn-primary" %>
+  <% end %>
+</div>
+
