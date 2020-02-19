@@ -1,6 +1,7 @@
 class Game < ApplicationRecord
   has_many :game_sessions
   has_one_attached :photo
+  mount_uploader :photo, PhotoUploader
 
   validates :name, presence: true
   validates :description, presence: true
