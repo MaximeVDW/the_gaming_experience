@@ -35,7 +35,11 @@
 
     <div class="game-details">
       <div class="game-image-container">
-        <%= cl_image_tag("risk_i5wr26.jpg", width: 400, height: 300, crop: :fill) %>
+        <% if @game_session.game.photo.attached? %>
+          <%= cl_image_tag @game_session.game.photo.key %>
+        <% else %>
+          <%= cl_image_tag("risk_i5wr26.jpg", width: 400, height: 300, crop: :fill) %>
+        <% end %>
       </div>
       <div class="game-description-container">
         <h4>Game description :</h4>
