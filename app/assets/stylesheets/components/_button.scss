@@ -19,6 +19,11 @@
   background: #1EDD88;
   transition: background 0.3s ease;
   text-align: center;
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
 }
 
 .btn-flat:hover {
