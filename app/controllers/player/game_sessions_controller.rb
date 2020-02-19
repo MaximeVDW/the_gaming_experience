@@ -7,7 +7,22 @@ class Player::GameSessionsController < ApplicationController
 
   end
 
-  def show
-    # on se pose la question si celle là n´ est pas inutile...
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update(params_edit_player)
+      redirect_to edit_player_game_session_path(@user)
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def params_edit_player
+    params.require(:game_session).permit(:first_name, :last_name, :username, :photo, :city)
   end
 end

@@ -1,0 +1,10 @@
+<h1 class="edit-title">Dear user, welcome to your profile</h1>
+
+<div class="container">
+  <%= simple_form_for @user do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :username %>
+    <%= f.submit 'Update your profile', class: "btn-primary" %>
+  <% end %>
+</div>
