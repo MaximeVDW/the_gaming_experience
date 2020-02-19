@@ -1,4 +1,5 @@
 .game-session-content {
+  margin-top: 100px;
   position: relative;
 }
 
@@ -19,6 +20,15 @@
 
 .game-session-show-img {
   margin-top: 50px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.game-description {
+  margin-left: 30px;
+  height: 100%;
+
 }
 
 .game-session-show-content {
@@ -32,7 +42,7 @@
 
 .flying-btn {
   position: fixed;
-  bottom: 35%;
+  bottom: 50%;
   right: 50px;
 
   a {

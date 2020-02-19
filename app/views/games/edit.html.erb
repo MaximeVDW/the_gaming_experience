@@ -1,0 +1,8 @@
+<p>welcome to the edit page of games</p>
+<%= simple_form_for @games do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit 'Update Game', class: "btn-primary" %>
+<% end %>
+<%= link_to 'Home', games_path %>
