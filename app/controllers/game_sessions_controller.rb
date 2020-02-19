@@ -15,6 +15,7 @@ class GameSessionsController < ApplicationController
   end
 
   def show
+    @image_placeholder = "https://images.pexels.com/photos/3700513/pexels-photo-3700513.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
   end
 
   def edit
