@@ -1,36 +1,54 @@
 
 <div class="container">
 
+  <div class="top-container">
+    <h1>Joins toi à moi Bichon!</h1>
+    <div class="btn-join-session">
+      <% if @game_session.booked? %>
+          <%= link_to 'Already taken', game_session_path(@game_session), class: "btn btn-flat" %>
+        <% else %>
+          <%= link_to 'Book Session', edit_game_session_path, class: "btn btn-flat" %>
+        <% end %>
+    </div>
+  </div>
+
   <div class="game-session-content">
-    <div class="d-flex align-item-center justify-content-around game-session-show-title">
+    <div class="game-session-show-title">
       <p><%= @game_session.game.name %></p>
       <p><%= @game_session.date %></p>
       <p><%= @game_session.city %></p>
     </div>
 
-    <div class="d-flex align-item-center justify-content-around game-session-show-img">
-      <%= cl_image_tag("risk_i5wr26.jpg", width: 400, height: 300, crop: :fill) %>
-      <div class="game-description">
+    <div class="game-session-details">
+      <div class="creator-container">
+        <% if @game_session.creator.photo.attached? %>
+          <div class="creator-avatar" style="background-image:url('<%= cl_image_path @game_session.creator.photo.key %>')"></div>
+        <% else %>
+          <div class="creator-avatar" style="background-image:url('<%= @image_placeholder %>')"></div>
+        <% end %>
+      </div>
+      <div class="game-session-description">
+        <h4>Game Session description: </h2>
+        <p><%= @game_session.description %></p>
+      </div>
+    </div>
+
+    <div class="game-details">
+      <div class="game-image-container">
+        <%= cl_image_tag("risk_i5wr26.jpg", width: 400, height: 300, crop: :fill) %>
+      </div>
+      <div class="game-description-container">
         <h4>Game description :</h4>
         <p><%= @game_session.game.description %></p>
       </div>
     </div>
 
-    <div class="d-flex align-item-center justify-content-around game-session-show-content">
-      <p><%= @game_session.description %> avec <%= @game_session.game.min_player %> à <%= @game_session.game.max_player %> amis</p>
+
+    <div class="game-session-footer">
+      <p><%= @game_session.game.min_player %> à <%= @game_session.game.max_player %> amis</p>
       <p>Hosted by : <%= @game_session.creator.email %></p>
-      <p><%= @game_session.price %>euro</p>
+      <p><%= @game_session.price %>€</p>
     </div>
-
-    <div class="flying-btn">
-      <% if @game_session.booked? %>
-        <%= link_to 'Already taken', game_session_path(@game_session) %>
-      <% else %>
-        <%= link_to 'Book Session', edit_game_session_path %>
-      <% end %>
-    </div>
-
-
   </div>
 
 </div>

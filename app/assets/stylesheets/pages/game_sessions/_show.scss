@@ -1,6 +1,25 @@
+.top-container {
+  margin: 20px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    color: $main-red;
+    margin: 20px;
+  }
+}
+
+.btn-join-session {
+  margin: 20px;
+  width: 300px;
+}
+
 .game-session-content {
-  margin-top: 100px;
   position: relative;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .card-category {
@@ -8,47 +27,97 @@
 }
 
 .game-session-show-title {
-  height: 50px;
-  background-color: #3E363F;
-  text-align: center;
-  color: white;
-  margin-top: 50px;
-  border-radius: 4px;
-  font-size: 32px;
-  border-bottom: 50px;
+  height: 15%;
+  background-color: $main-red;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+  padding: 10px;
+
+  p {
+    color: white;
+    font-size: 32px;
+    margin: 10px;
+  }
 }
 
-.game-session-show-img {
-  margin-top: 50px;
-  height: 100%;
+.game-session-details {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(244, 244, 244);
+    padding: 20px;
+
+  .creator-container {
+    height: 50%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+
+    .creator-avatar {
+    height: 100px;
+    width: 100px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+  }
+
+  .game-session-description {
+    height: 50%;
+    width: 70%;
+
+    h4 {
+      margin-bottom: 20px;
+    }
+
+  }
+}
+
+
+.game-details {
   display: flex;
   align-items: center;
+  border-bottom: 1px solid rgb(244, 244, 244);
+  padding: 20px;
+  .game-image-container {
+    height: 50%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 80%;
+      height: 80%;
+      border-radius: 6px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+  }
+
+  .game-description-container {
+    height: 50%;
+    width: 70%;
+
+    h4 {
+      margin-bottom: 20px;
+    }
+  }
 }
 
-.game-description {
-  margin-left: 30px;
-  height: 100%;
+.game-session-footer {
+  height: 15%;
+  background-color: $main-red;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 0 0 10px 10px;
+  padding: 10px;
 
-}
-
-.game-session-show-content {
-  background-color: white;
-  text-align: center;
-  color: #3E363F;
-  margin-top: 50px;
-  border-radius: 4px;
-  font-size: 24px;
-}
-
-.flying-btn {
-  position: fixed;
-  bottom: 50%;
-  right: 50px;
-
-  a {
-    text-decoration: none;
-    background-color: #3E363F;
+  p {
     color: white;
-    padding: 10px;
+    font-size: 32px;
+    margin: 10px;
   }
 }
