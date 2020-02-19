@@ -1,7 +1,9 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.pexels.com/photos/209728/pexels-photo-209728.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
   <div class="banner-container">
     <h1>What game will you discover next Friday evening?</h1>
     <p>Find gamers everywhere anytime.</p>
-    <%= link_to "Find a Session!", game_sessions_path, class: "btn btn-flat"  %>
+    <div class="btn-container">
+      <%= link_to "Find a Session!", game_sessions_path, class: "btn btn-flat"  %>
+    </div>
   </div>
 </div>
