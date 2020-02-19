@@ -52,6 +52,14 @@
       <p><%= @game_session.game.min_player %> à <%= @game_session.game.max_player %> amis</p>
       <p>Hosted by : <%= @game_session.creator.email %></p>
       <p><%= @game_session.price %>€</p>
+      <% if @game_session.creator_id == current_user.id  %>
+        <div class="d-flex align-items-center">
+          <%= link_to 'Cancel', game_sessions_path, class: "bg-transparent border-0 text-white" %>
+          <p>||</p>
+          <%= link_to 'Edit', edit_creater_game_session_path(@game_session), class: "bg-transparent border-0 text-white" %>
+        </div>
+      <% end %>
+
     </div>
   </div>
 
