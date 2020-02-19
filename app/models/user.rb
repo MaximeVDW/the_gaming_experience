@@ -9,5 +9,4 @@ class User < ApplicationRecord
   has_many :games, through: :game_sessions
   has_one_attached :photo
 
-  validates :city, presence: true
 end

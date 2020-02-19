@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :game_sessions, only: [:index, :show, :edit, :update]
 
   namespace :player do
-      resources :game_sessions, only: [:index, :show]
+      resources :game_sessions, only: [:index, :show, :edit, :update]
   end
 
   namespace :creator do
