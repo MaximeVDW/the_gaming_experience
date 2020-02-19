@@ -3,12 +3,15 @@ class GameSessionsController < ApplicationController
   before_action :set_game_session, only: [:show, :edit, :update]
 
   def index
+
+    @image_placeholder = "https://images.pexels.com/photos/3700513/pexels-photo-3700513.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+
     if params[:query] == nil || params[:query] == ""
       @game_sessions = GameSession.all
     else
       @game_sessions = GameSession.search_by_city_and_date(params[:query])
     end
-    @image_placeholder = "https://avatarfiles.alphacoders.com/164/164836.jpg"
+
   end
 
   def show
