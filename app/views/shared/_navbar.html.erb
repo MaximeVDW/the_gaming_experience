@@ -12,16 +12,14 @@
       <li class="nav-item active">
         <%= link_to "Home", root_path, class: "nav-link-red" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Messages", "#", class: "nav-link-red" %>
-      </li>
 
       <li class="nav-item dropdown">
         <% if user_signed_in? %>
           <% if current_user.photo != nil %>
             <i class="far fa-smile avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "My dashboard", "#", class: "dropdown-item" %>
+              <%= link_to "My profil", "#", class: "dropdown-item" %>
+              <%= link_to "My dashboard", player_game_sessions_path, class: "dropdown-item" %>
               <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
         <% else %>
@@ -29,14 +27,12 @@
         <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My profil", "#", class: "dropdown-item" %>
-            <%= link_to "My dashboard", "#", class: "dropdown-item" %>
-            <%= link_to "Contacts", "#", class: "dropdown-item" %>
+            <%= link_to "My dashboard", player_game_sessions_path, class: "dropdown-item" %>
             <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         <% else %>
           <i class="far fa-angry avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Contacts", "#", class: "dropdown-item" %>
             <%= link_to "Sign in", new_user_session_path, class: "dropdown-item" %>
           </div>
         <% end %>
