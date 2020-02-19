@@ -1,7 +1,7 @@
 <div class="container pt-3">
   <h1>Create you game-session</h1>
   <div class="container mb-5 pb-3">
-    <%= simple_form_for [@game_session], :url => url_for(:action => 'create', :controller => 'game_sessions'), :method => 'post' do |f| %>
+    <%= simple_form_for (@game_session), :url => url_for(:action => 'create', :controller => 'game_sessions'), :method => 'post' do |f| %>
       <%= f.input :date %>
       <%= f.input :game, collection: ['Poker', 'Monopoly', 'Risk', 'La bonne paye', 'Tarot'] %>
       <%= f.input :price %>
