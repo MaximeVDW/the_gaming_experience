@@ -3,6 +3,17 @@
   display:flex;
   flex-direction: column;
   align-items: center;
+
+
+  h1 {
+    color: $main-red;
+    margin: 20px;
+  }
+
+  .form-control {
+    margin-bottom: 10px;
+
+  }
 }
 
 .filter-form-container {

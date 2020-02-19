@@ -23,7 +23,7 @@
 .card:hover {
   cursor: pointer;
   width: 83%;
-  background-color: rgba(27, 203, 127,1);
+  background-color: $main-red;
   color: white;
   .card-date {
     border-bottom: 1px solid rgb(255, 255, 255);
@@ -60,6 +60,7 @@
 .card-middle {
   width: 60%;
   height: 100%;
+  position: relative;
   .card-game-name {
     margin: 20px;
     font-size: 32px;
@@ -68,6 +69,15 @@
 
   .card-game-description {
     margin: 20px;
+  }
+
+  .booked {
+    position: absolute;
+    font-size: 150px;
+    color : rgba(27, 203, 127, 0.4);
+    top: 10%;
+    left: 70%;
+
   }
 }
 
@@ -98,5 +108,9 @@
     }
 
   }
-
 }
+
+
+
+
+
