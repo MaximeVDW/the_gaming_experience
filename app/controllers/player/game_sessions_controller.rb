@@ -1,6 +1,8 @@
 class Player::GameSessionsController < ApplicationController
   def index
-    @game_sessions = GameSession.where(player: current_user)
+    #@game_sessions = GameSession.where(player_id: current_user.id)
+    #Si bug voir avec Geoffrey
+    @game_sessions = GameSession.all
   end
 
   def show

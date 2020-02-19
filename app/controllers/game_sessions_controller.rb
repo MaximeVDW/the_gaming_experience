@@ -11,7 +11,6 @@ class GameSessionsController < ApplicationController
     else
       @game_sessions = GameSession.search_by_city_and_date(params[:query])
     end
-
   end
 
   def show
