@@ -27,10 +27,6 @@
         </div>
         <div class="card-middle">
           <div class="card-game-name"><%= game_session.game.name %></div>
-          <div class="card-game-description"><%= game_session.description %></div>
-          <% if game_session.booked == true %>
-            <i class="far fa-check-circle booked"></i>
-          <% end %>
         </div>
         <div class="card-right-side">
           <div class="card-price"><%= game_session.price %>€</div>
@@ -62,7 +58,6 @@
       </div>
       <div class="card-middle">
         <div class="card-game-name"><%= game_session.game.name %></div>
-        <div class="card-game-description"><%= game_session.description %></div>
         <% if game_session.booked == true %>
           <i class="far fa-check-circle booked"></i>
         <% end %>
