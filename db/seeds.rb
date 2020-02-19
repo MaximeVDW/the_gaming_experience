@@ -1,5 +1,4 @@
 require "open-uri"
-require "byebug"
 
 puts "Destroying the old database"
 User.destroy_all
@@ -15,22 +14,22 @@ user1.save!
 user2 = User.new(email: "bbbbb@bbbbb.fr", password: "123456", phone_number: "0691235672", postal_code: "33000", street_number: "18", street: "Avenue du Général Foch", first_name: "Tim", last_name: "Boing", username: "TimTim", city: "bordeaux")
 picture2 = URI.open('https://images.unsplash.com/photo-1517423738875-5ce310acd3da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=705&q=80')
 user2.photo.attach(io: picture2, filename: 'user2.png', content_type: 'image/png')
-user2.save
+user2.save!
 
 user3 = User.new(email: "ccccc@ccccc.fr", password: "123456", phone_number: "0691235673", postal_code: "33300", street_number: "32", street: "Sente des Moritiers", first_name: "Geoffrey", last_name: "Dulac", username: "GeoffreyXXX", city: "bordeaux")
 picture3 = URI.open('https://res.cloudinary.com/dwsebrqxl/image/upload/v1582122066/mec1_fazdks.jpg')
 user3.photo.attach(io: picture3, filename: 'user3.png', content_type: 'image/png')
-user3.save
+user3.save!
 
 user4 = User.new(email: "ddddd@ddddd.fr", password: "123456", phone_number: "0691235674", postal_code: "75000", street_number: "12", street: "cours balguerie stuttenberg", first_name: "Vanderwees", last_name: "Maxime", username: "Max", city: "paris")
 picture4 = URI.open('https://images.unsplash.com/photo-1505628346881-b72b27e84530?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')
 user4.photo.attach(io: picture4, filename: 'user4.png', content_type: 'image/png')
-user4.save
+user4.save!
 
 user5 = User.new(email: "eeeee@eeeee.fr", password: "123456", phone_number: "0691235675", postal_code: "75000", street_number: "8", street: "Inconnu", first_name: "Bobby", last_name: "Lapointe", username: "Bob", city: "paris")
 picture5 = URI.open('https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&auto=format&fit=crop&w=660&q=80')
 user5.photo.attach(io: picture5, filename: 'user5.png', content_type: 'image/png')
-user5.save
+user5.save!
 
 puts "Some users have been created"
 puts "Creating new games..."
@@ -57,7 +56,7 @@ game4.save
 game5 = Game.new(name: "Tarot", category: "Jeu de Carte", description: "The French game of tarot, also jeu de tarot, is a trick-taking strategy tarot card game played by three to five players using a traditional 78-card tarot deck. The game is the second most popular card game in France.", min_player: 3, max_player: 5)
 picture10 = URI.open('https://res.cloudinary.com/dwsebrqxl/image/upload/v1582121802/tarot_sxzdlq.jpg')
 game5.photo.attach(io: picture10, filename: 'tarot.png', content_type: 'image/png')
-# game5.save
+game5.save
 
 puts "Some games have been created"
 puts "Creating new game sessions..."
