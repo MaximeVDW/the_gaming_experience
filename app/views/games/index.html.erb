@@ -1,4 +1,7 @@
 <% @games.each do |game| %>
-  <%= game.name %>
-  <%= game.description %>
+  <div style="background-color: red;" onclick="location.href='<%= game_path(game) %>'">
+    <p><%= game.name %></p>
+    <p><%= game.description %></p>
+  </div>
 <% end %>
+<%= link_to 'Create a new game', new_game_path %>
