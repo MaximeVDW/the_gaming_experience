@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   namespace :creator do
-      resources :game_sessions, only: [:index, :new, :create]
+      resources :game_sessions, only: [:index, :new, :create, :edit, :update]
   end
 
   resources :games
