@@ -13,7 +13,7 @@
 
   <div class="profile-container">
 
-    <% if params[:id].to_i == current_user["id"] %>
+    <% if current_user && params[:id].to_i == current_user["id"] %>
       <div class="edition-container">
         <%= link_to edit_user_path(@user) do  %>
           <i class="fas fa-edit edit-btn"></i>
@@ -48,7 +48,7 @@
 
   </div>
 
-<% unless params[:id].to_i == current_user["id"] %>
+<% unless current_user && params[:id].to_i == current_user["id"] %>
 
   <div class="filter-container">
     <h1>Les sessions de <%= @user.username %></h1>
