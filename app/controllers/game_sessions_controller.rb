@@ -6,13 +6,11 @@ class GameSessionsController < ApplicationController
 
     @image_placeholder = "https://images.pexels.com/photos/3700513/pexels-photo-3700513.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
 
-    if params[:query] == nil || params[:query] == ""
-      @game_sessions = GameSession.all
-    else
-      @game_sessions = GameSession.search_by_city_and_date(params[:query])
+    @game_sessions = GameSession.all.sort_by {|game_session| game_session.date}
+    if params[:query].present?
+    @game_sessions = GameSession.all.search_by_city(params[:query])
     end
 
-    @game_sessions = @game_sessions.sort_by {|game_session| game_session.date}
     @geocoded_sessions = @game_sessions.select {|session| session.geocoded?}
     @markers = @geocoded_sessions.map do |session|
       {

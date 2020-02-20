@@ -7,11 +7,4 @@ class Game < ApplicationRecord
   validates :category, presence: true
   validates :min_player, presence: true
   validates :max_player, presence: true
-
-  include PgSearch::Model
-  pg_search_scope :search_by_name_and_category,
-    against: [ :name, :category ],
-    using: {
-      tsearch: { prefix: true }
-    }
 end
