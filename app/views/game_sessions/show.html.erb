@@ -54,9 +54,9 @@
       <p><%= @game_session.price %>€</p>
       <% if @game_session.creator_id == current_user.id  %>
         <div class="d-flex align-items-center">
-          <%= link_to 'Cancel', game_sessions_path, class: "bg-transparent border-0 text-white" %>
+          <%= link_to 'Cancel', game_sessions_path, class: "bg-transparent border-0 text-white", :method => :delete %>
           <p>||</p>
-          <%= link_to 'Edit', edit_creator_game_session_path(@game_session), class: "bg-transparent border-0 text-white" %>
+          <%= link_to 'Edit', edit_creator_game_session_path(@game_session), class: "bg-transparent border-0 text-white", :method => :get %>
         </div>
       <% end %>
 
