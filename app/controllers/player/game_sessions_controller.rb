@@ -8,6 +8,7 @@ class Player::GameSessionsController < ApplicationController
   end
 
   def edit
+    @game_session = GameSession.find(params[:id])
     @user = current_user
   end
 
