@@ -28,7 +28,7 @@
     <p>Postal Code: <%= @user.postal_code %></p>
     <p>City: <%= @user.city %></p>
 
-    <% if params[:id].to_i == current_user["id"] %>
+    <% if current_user && params[:id].to_i == current_user["id"] %>
       <div class="game-session-footer btn" onclick="location.href='<%= edit_user_path(@user) %>'">
           <p> Edit </p>
       </div>
