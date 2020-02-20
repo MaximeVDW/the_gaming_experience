@@ -1,0 +1,50 @@
+.profile-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .edition-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    .edit-btn {
+      color: $main-red;
+      float: right;
+      font-size: 30px;
+    }
+  }
+
+
+  .profile-picture-container {
+
+    .profile-picture {
+      width: 200px;
+      height: 200px;
+      border: 10px solid $main-red;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      margin: 20px;
+    }
+
+  }
+
+  .user-details-container {
+    margin: 20px;
+    text-align: center;
+
+    span {
+      //font-weight: bold;
+      color: $main-red;
+    }
+  }
+
+  .dashboard-btn {
+    width: 80%;
+  }
+}

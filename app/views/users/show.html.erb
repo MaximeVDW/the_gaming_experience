@@ -1,83 +1,94 @@
 
 <div class="container">
 
+  <% if params[:id].to_i == current_user["id"] %>
+    <div class="top-container">
+      <h1>Ca C toi Bichon!</h1>
+    </div>
+  <% else %>
+    <div class="top-container">
+      <h1>Tul conais s'gars là?</h1>
+    </div>
+  <% end %>
+
+  <div class="profile-container">
+
     <% if params[:id].to_i == current_user["id"] %>
-      <div class="top-container">
-        <h1>Ca C toi Bichon!</h1>
-      </div>
-    <% else %>
-      <div class="top-container">
-        <h1>Tul conais s'gars là?</h1>
+      <div class="edition-container">
+        <%= link_to edit_user_path(@user) do  %>
+          <i class="fas fa-edit edit-btn"></i>
+        <% end %>
       </div>
     <% end %>
 
+    <div class="profile-picture-container">
+      <% if @user.photo.attached? %>
+         <div class="profile-picture" style="background-image:url('<%= cl_image_path @user.photo.key %>')"></div>
+      <% else %>
+      <% end %>
+    </div>
 
-  <div class="game-image-container">
-    <% if @user.photo.attached? %>
-      <%= cl_image_tag @user.photo.key, width: 400, height: 300, crop: :fill%>
-    <% else %>
+    <div class="full-name-container">
+      <h2><%= @user.first_name  %> <%= @user.last_name %> </h2>
+    </div>
+
+    <div class="user-details-container">
+      <p><span>Username: </span><%= @user.username %></p>
+      <p><span>Phone number: </span><%= @user.phone_number %></p>
+      <p><span>Address: </span><%= @user.street_number %> <%= @user.street %></p>
+      <p><span>Postal Code: </span><%= @user.postal_code %></p>
+      <p><span>City: </span><%= @user.city %></p>
+    </div>
+
+    <% if params[:id].to_i == current_user["id"] %>
+      <div class="dashboard-btn">
+        <%= link_to 'Retour à ton dashboard', player_game_sessions_path, class: 'btn btn-flat' %>
+      </div>
     <% end %>
+
   </div>
 
-  <div class="game-session-content">
-    <p>First name: <%= @user.first_name %></p>
-    <p>Last name: <%= @user.last_name %></p>
-    <p>Username: <%= @user.username %></p>
-    <p>Phone number: <%= @user.phone_number %></p>
-    <p>Address: <%= @user.street_number %> <%= @user.street %></p>
-    <p>Postal Code: <%= @user.postal_code %></p>
-    <p>City: <%= @user.city %></p>
+<% unless params[:id].to_i == current_user["id"] %>
 
-    <% if params[:id].to_i == current_user["id"] %>
-      <div class="game-session-footer btn" onclick="location.href='<%= edit_user_path(@user) %>'">
-          <p> Edit </p>
-      </div>
-      <div class="game-session-footer btn" onclick="location.href='<%= player_game_sessions_path %>'">
-          <p> Retour à ton dashboard </p>
-      </div>
-    <% else %>
-      <div class="filter-container">
-        <h1>Les sessions de <%= @user.username %></h1>
-      </div>
-      <div class="personal-container">
-        <div class="map-and-cards-container" id="map-and-cards-container">
-          <div class="cards-container" id="cards-container">
-            <div class="cards">
-              <% @game_sessions.each do |game_session| %>
-                <% if game_session.booked == false %>
-                  <div class="card" onclick="location.href='<%= game_session_path(game_session) %>'">
+  <div class="filter-container">
+    <h1>Les sessions de <%= @user.username %></h1>
+  </div>
 
-                    <div class="card-left-side">
-                      <div class="card-date"><%= game_session.date %></div>
-                      <div class="card-city"><%= game_session.city %></div>
-                    </div>
+  <div class="cards">
+    <% @game_sessions.each do |game_session| %>
+    <% if game_session.booked == false %>
+      <div class="card" onclick="location.href='<%= game_session_path(game_session) %>'">
 
-                    <div class="card-middle">
-                      <div class="card-game-name"><%= game_session.game.name %></div>
-                      <div class="card-game-description"><%= game_session.description %></div>
-                      <% if game_session.booked == true %>
-                        <i class="far fa-check-circle booked"></i>
-                      <% end %>
-                    </div>
+        <div class="card-left-side">
+          <div class="card-date"><%= game_session.date %></div>
+          <div class="card-city"><%= game_session.city %></div>
+        </div>
 
-                    <div class="card-right-side">
-                      <div class="card-price"><%= game_session.price %>€</div>
-                      <div class="card-avatar-container">
-                        <% if game_session.creator.photo.attached? %>
-                          <div class="card-avatar" style="background-image:url('<%= cl_image_path game_session.creator.photo.key %>')"></div>
-                        <% else %>
-                          <div class="card-avatar" style="background-image:url('<%= @image_placeholder %>')"></div>
-                        <% end %>
-                      </div>
-                    </div>
-                  </div>
-                <% end %>
-              <% end %>
-            </div>
+        <div class="card-middle">
+          <div class="card-game-name"><%= game_session.game.name %></div>
+          <div class="card-game-description"><%= game_session.description %></div>
+          <% if game_session.booked == true %>
+            <i class="far fa-check-circle booked"></i>
+          <% end %>
+        </div>
+
+        <div class="card-right-side">
+          <div class="card-price"><%= game_session.price %>€</div>
+          <div class="card-avatar-container">
+            <% if game_session.creator.photo.attached? %>
+              <div class="card-avatar" style="background-image:url('<%= cl_image_path game_session.creator.photo.key %>')"></div>
+            <% else %>
+              <div class="card-avatar" style="background-image:url('<%= @image_placeholder %>')"></div>
+            <% end %>
           </div>
         </div>
+
       </div>
     <% end %>
+    <% end %>
   </div>
+
+<% end %>
+
 </div>
 
