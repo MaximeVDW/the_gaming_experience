@@ -1,3 +1,5 @@
+require 'date'
+
 class GameSessionsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :index, :show]
   before_action :set_game_session, only: [:show, :edit, :update]
@@ -20,6 +22,15 @@ class GameSessionsController < ApplicationController
         lng: session.longitude
       }
     end
+
+    # c´est pour classifier les cartes dans index
+    @today = Date.today
+    @next_sunday = next_sunday(@today)
+    @today_use = true
+    @this_week_use = true
+    @this_month_use = true
+    @later_this_year_use = true
+    @next_year_use = true
   end
 
   def show
@@ -57,6 +68,16 @@ class GameSessionsController < ApplicationController
   def search()
     @game_sessions = PgSearch.multisearch('superman')
   end
+
+  def next_sunday(date)
+    days_until_sunday = 7 - date.wday
+    if days_until_sunday == 0 then
+      return date + 7
+    else
+      return date + days_until_sunday
+    end
+  end
+
 end
 
 
