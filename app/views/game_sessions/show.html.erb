@@ -56,7 +56,7 @@
         <div class="d-flex align-items-center">
           <%= link_to 'Cancel this session', creator_game_session_path(@game_session), class: "bg-transparent border-0 text-white", :method => :delete, data: {confirm: "Do you really want to cancel this session monbichon ?"} %>
           <p>||</p>
-          <%= link_to 'Edit', edit_creator_game_session_path(@game_session), class: "bg-transparent border-0 text-white" %>
+          <%= link_to 'Edit', edit_creator_game_session_path(@game_session), class: "bg-transparent border-0 text-white", :method => :get %>
         </div>
       <% end %>
 

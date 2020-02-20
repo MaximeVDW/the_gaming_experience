@@ -1,8 +1,8 @@
 class Creator::GameSessionsController < ApplicationController
   def index
     # idealement on devrait pouvoir ecrire current_user.game_sessions mais par rapport à creator et player....?
-    @game_sessions = GameSession.where(creator: current_user)
-    @game_sessions = @game_sessions.sort_by {|game_session| game_session.date}
+    game_sessions = GameSession.where(creator: current_user)
+    @game_sessions = game_sessions.sort_by {|game_session| game_session.date}
   end
 
   def new
@@ -28,10 +28,9 @@ class Creator::GameSessionsController < ApplicationController
   end
 
   def update
-    raise
-    @game = Game.find(params[:id])
+    @game_session = GameSession.find(params[:id])
     if @game_session.update(game_session_params)
-      redirect_to game_session_path(@game_session)
+      redirect_to player_game_sessions_path
     else
       render :edit
     end
