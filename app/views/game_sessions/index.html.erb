@@ -26,6 +26,29 @@
       <div class="cards">
         <% @game_sessions.each do |game_session| %>
           <% if game_session.booked == false && game_session.date >= DateTime.now %>
+
+            <% if game_session.date == @today && @today_use == true %>
+              <h2 class="date-delimiter" >Sessions Today</h2>
+              <% @today_use = false %>
+
+            <% elsif game_session.date <= @next_sunday && @this_week_use == true %>
+              <h2 class="date-delimiter">Sessions this Week</h2>
+              <% @this_week_use = false %>
+
+            <% elsif game_session.date.year == @today.year && game_session.date.month == @today.month && @this_month_use == true %>
+              <h2 class="date-delimiter">Sessions this Month</h2>
+              <% @this_month_use = false %>
+
+            <% elsif game_session.date.year == @today.year && @later_this_year_use == true %>
+              <h2 class="date-delimiter">Sessions later this Year</h2>
+              <% @later_this_year_use = false %>
+
+             <% elsif game_session.date.year > @today.year && @next_year_use == true %>
+              <h2 class="date-delimiter">Sessions after this Year</h2>
+              <% @next_this_year = false %>
+
+            <% end %>
+
             <div class="card" onclick="location.href='<%= game_session_path(game_session) %>'">
 
                 <div class="card-left-side">

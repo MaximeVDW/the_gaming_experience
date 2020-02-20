@@ -55,3 +55,10 @@
 .flex-direction-to-column {
   flex-direction: column;
 }
+
+.date-delimiter {
+  color: $main-red;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  padding: 20px;
+}
