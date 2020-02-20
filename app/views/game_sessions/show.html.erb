@@ -20,7 +20,7 @@
     </div>
 
     <div class="game-session-details">
-      <div class="creator-container">
+      <div class="creator-container btn btn-white" onclick="location.href='<%= user_path(@game_session.creator) %>'">
         <% if @game_session.creator.photo.attached? %>
           <div class="creator-avatar" style="background-image:url('<%= cl_image_path @game_session.creator.photo.key %>')"></div>
         <% else %>
@@ -50,7 +50,7 @@
 
     <div class="game-session-footer">
       <p><%= @game_session.game.min_player %> à <%= @game_session.game.max_player %> amis</p>
-      <p>Hosted by : <%= @game_session.creator.username %></p>
+      <p class="btn btn-red" onclick="location.href='<%= user_path(@game_session.creator) %>'">Hosted by : <%= @game_session.creator.username %></p>
       <p><%= @game_session.price %>€</p>
       <% if @game_session.creator_id == current_user.id  %>
         <div class="d-flex align-items-center">

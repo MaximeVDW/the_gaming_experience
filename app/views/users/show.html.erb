@@ -21,12 +21,11 @@
     <p>Postal Code: <%= @user.postal_code %></p>
     <p>City: <%= @user.city %></p>
 
-    <div class="game-session-footer">
-      <div class="d-flex align-items-center">
-        <%= link_to 'Edit', edit_user_path(@user), class: "bg-transparent border-0 text-white" %>
+    <% if params[:id].to_i == current_user["id"] %>
+      <div class="game-session-footer btn" onclick="location.href='<%= edit_user_path(@user) %>'">
+          <p> Edit </p>
       </div>
-    </div>
+    <% end %>
   </div>
-
 </div>
 
