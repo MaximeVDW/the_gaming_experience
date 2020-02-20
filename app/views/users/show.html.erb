@@ -1,7 +1,7 @@
 
 <div class="container">
 
-  <% if params[:id].to_i == current_user["id"] %>
+  <% if current_user && params[:id].to_i == current_user["id"] %>
     <div class="top-container">
       <h1>Ca C toi Bichon!</h1>
     </div>
@@ -40,7 +40,7 @@
       <p><span>City: </span><%= @user.city %></p>
     </div>
 
-    <% if params[:id].to_i == current_user["id"] %>
+    <% if current_user && params[:id].to_i == current_user["id"] %>
       <div class="dashboard-btn">
         <%= link_to 'Retour à ton dashboard', player_game_sessions_path, class: 'btn btn-flat' %>
       </div>

@@ -13,8 +13,11 @@ class GameSession < ApplicationRecord
   validates :city, presence: true
 
   include PgSearch::Model
-  pg_search_scope :search_by_city_and_date,
-    against: [ :city, :date ],
+  pg_search_scope :search_by_city,
+    against: [ :city ],
+    associated_against: {
+      game: [ :name ]
+    },
     using: {
       tsearch: { prefix: true }
     }
