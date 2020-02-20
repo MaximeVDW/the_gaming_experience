@@ -13,8 +13,14 @@ class Player::GameSessionsController < ApplicationController
   end
 
   def update
+    @game_session = GameSession.find(params[:id])
     @user = current_user
-    if @user.update(params_edit_player)
+    if params["booked"].present?
+      @game_session["booked"] = false
+      @game_session["player_id"] = nil
+      @game_session.save
+      redirect_to player_game_sessions_path
+    elsif @user.update(params_edit_player)
       redirect_to edit_player_game_session_path(@user)
     else
       render :edit

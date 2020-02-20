@@ -19,6 +19,8 @@
       </div>
     </div>
     <% @game_sessions.each do |game_session| %>
+    <% if game_session == false %>
+    <% end %>
     <% if game_session.player_id == current_user.id %>
       <div class="card" onclick="location.href='<%= game_session_path(game_session) %>'">
         <div class="card-left-side">
