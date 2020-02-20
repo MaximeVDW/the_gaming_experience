@@ -1,7 +1,42 @@
-<% @games.each do |game| %>
-  <div style="background-color: red;" onclick="location.href='<%= game_path(game) %>'">
-    <p><%= game.name %></p>
-    <p><%= game.description %></p>
+<div class="container">
+
+  <div class="filter-container">
+    <h1>MasterRace pastime choices</h1>
+    <div class="filter-form-container">
+      <%= form_tag games_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a game of search by category"
+        %>
+        <%= submit_tag "Search", class: "btn btn-flat resize-btn" %>
+      <% end %>
+    </div>
   </div>
-<% end %>
-<%= link_to 'Create a new game', new_game_path %>
+
+  <div class="cards">
+    <%= link_to 'Create a new game', new_game_path, class: "btn btn-flat" %>
+    <% @games.each do |game| %>
+        <div class="card" onclick="location.href='<%= game_path(game) %>'">
+
+            <div class="card-left-side d-flex align-items-center justify-content-center">
+              <% if game.photo.attached? %>
+                <%= cl_image_tag game.photo.key %>
+              <% end %>
+            </div>
+
+            <div class="card-middle">
+              <div class="card-game-name"><%= game.name %></div>
+              <div class="card-game-description"><%= game.description[0...150] ... %></div>
+            </div>
+
+            <div class="card-right-side d-flex align-items-center justify-content-center">
+              <div class="card-price"><%= game.category %></div>
+            </div>
+
+        </div>
+    <% end %>
+
+  </div>
+
+</div>

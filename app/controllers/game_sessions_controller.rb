@@ -11,6 +11,15 @@ class GameSessionsController < ApplicationController
     else
       @game_sessions = GameSession.search_by_city_and_date(params[:query])
     end
+
+    @game_sessions = @game_sessions.sort_by {|game_session| game_session.date}
+    @geocoded_sessions = @game_sessions.select {|session| session.geocoded?}
+    @markers = @geocoded_sessions.map do |session|
+      {
+        lat: session.latitude,
+        lng: session.longitude
+      }
+    end
   end
 
   def show
@@ -28,6 +37,11 @@ class GameSessionsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @game_session = GameSession.find(params[:id])
+    @game_session.destroy
   end
 
   private

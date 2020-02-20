@@ -1,5 +1,45 @@
-<p>welcome to the show of <%= @game.name %></p>
-<% if @game.photo.attached? %>
-  <%= cl_image_tag @game.photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-<%= link_to 'Edit the game details', edit_game_path(@game) %>
+<div class="container">
+
+  <div class="top-container">
+    <h1>The amazing game of <%= @game.name %></h1>
+    <div class="btn-join-session">
+      <%= link_to 'Edit Game', edit_game_path(@game), class: "btn btn-flat" %>
+    </div>
+  </div>
+
+  <div class="game-session-content">
+    <div class="game-session-show-title">
+      <p style="text-align: center"><%= @game.name %></p>
+    </div>
+
+    <div class="game-details" style="height: 30vh;">
+      <div class="game-image-container" style="height: 100%">
+        <% if @game.photo.attached? %>
+          <%= cl_image_tag @game.photo.key, style: "height: 100%;" %>
+        <% else %>
+          <%= cl_image_tag("risk_i5wr26.jpg", width: 400, height: 300, crop: :fill) %>
+        <% end %>
+      </div>
+      <div class="game-description-container" style="height: 100%">
+        <h4>Game description :</h4>
+        <p><%= @game.description %></p>
+        <p>Min players : <%= @game.min_player %></p>
+        <p>Min players : <%= @game.max_player %></p>
+        <p style="text-align: right; font-size: 20px;">Category : <%= @game.category %></p>
+      </div>
+    </div>
+
+
+    <div class="game-session-footer">
+      <p>Reviews : <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i> (343)</p>
+      <div class="d-flex align-items-center">
+        <%= link_to 'Delete', game_path, class: "bg-transparent border-0 text-white", :method => :delete, data: {confirm: "Do you really want to delete this amazing game monbichon ?"} %>
+        <p>||</p>
+        <%= link_to 'Edit', edit_game_path(@game), class: "bg-transparent border-0 text-white" %>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+

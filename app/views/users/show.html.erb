@@ -1,0 +1,31 @@
+
+<div class="container">
+
+  <div class="top-container">
+    <h1>Ca C toi Bichon!</h1>
+  </div>
+
+  <div class="game-image-container">
+    <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, width: 400, height: 300, crop: :fill%>
+    <% else %>
+    <% end %>
+  </div>
+
+  <div class="game-session-content">
+    <p>First name: <%= @user.first_name %></p>
+    <p>Last name: <%= @user.last_name %></p>
+    <p>Username: <%= @user.username %></p>
+    <p>Phone number: <%= @user.phone_number %></p>
+    <p>Address: <%= @user.street_number %> <%= @user.street %></p>
+    <p>Postal Code: <%= @user.postal_code %></p>
+    <p>City: <%= @user.city %></p>
+
+    <% if params[:id].to_i == current_user["id"] %>
+      <div class="game-session-footer btn" onclick="location.href='<%= edit_user_path(@user) %>'">
+          <p> Edit </p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
