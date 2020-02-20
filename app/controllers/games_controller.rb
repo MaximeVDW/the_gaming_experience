@@ -12,6 +12,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @game_sessions = GameSession.all
   end
 
   def new
