@@ -37,7 +37,7 @@ class Creator::GameSessionsController < ApplicationController
   end
 
   def destroy
-    @game_session = GameSession.find(params[:id]) # ???????
+    @game_session = GameSession.find(params[:id])
     @game_session.destroy
     redirect_to player_game_sessions_path
   end
