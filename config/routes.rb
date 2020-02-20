@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   namespace :creator do
-      resources :game_sessions, only: [:index, :new, :create, :edit, :update]
+      resources :game_sessions, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
   resources :games
