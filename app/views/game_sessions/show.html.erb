@@ -52,7 +52,7 @@
       <p><%= @game_session.game.min_player %> à <%= @game_session.game.max_player %> amis</p>
       <p>Hosted by : <%= @game_session.creator.username %></p>
       <p><%= @game_session.price %>€</p>
-      <% if @game_session.creator_id == current_user.id  %>
+      <% if current_user && @game_session.creator_id == current_user.id  %>
         <div class="d-flex align-items-center">
           <%= link_to 'Cancel this session', creator_game_session_path(@game_session), class: "bg-transparent border-0 text-white", :method => :delete, data: {confirm: "Do you really want to cancel this session monbichon ?"} %>
           <p>||</p>
