@@ -1,6 +1,13 @@
 class GamesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @games = Game.all
+
+    if params[:query] == nil || params[:query] == ""
+      @games = Game.all
+    else
+      @games = Game.search_by_name_and_category(params[:query])
+    end
   end
 
   def show
@@ -31,6 +38,12 @@ class GamesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @game = Game.find(params[:id])
+    @game.destroy
+    redirect_to games_path
   end
 
   private
