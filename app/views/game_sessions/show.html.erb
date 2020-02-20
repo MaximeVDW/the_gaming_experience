@@ -59,6 +59,11 @@
           <%= link_to 'Edit', edit_creator_game_session_path(@game_session), class: "bg-transparent border-0 text-white", :method => :get %>
         </div>
       <% end %>
+      <% if current_user && @game_session.player_id == current_user.id  %>
+        <div class="btn-flat">
+          <%= link_to 'Cancel your participation', player_game_session_path(booked: false), method: :patch, data: {confirm: "Do you really want to cancel this session monbichon ?"} %>
+        </div>
+      <% end %>
 
     </div>
   </div>
