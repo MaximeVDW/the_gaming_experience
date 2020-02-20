@@ -46,7 +46,7 @@
           <% if current_user.photo != nil %>
             <i class="far fa-smile avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "My profil", player_game_session_path(current_user), class: "dropdown-item" %>
+              <%= link_to "My profil", user_path(current_user), class: "dropdown-item" %>
               <%= link_to "My dashboard", player_game_sessions_path, class: "dropdown-item" %>
               <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
@@ -54,7 +54,7 @@
           <%= image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "My profil", "#", class: "dropdown-item" %>
+            <%= link_to "My profil", user_path(current_user), class: "dropdown-item" %>
             <%= link_to "My dashboard", player_game_sessions_path, class: "dropdown-item" %>
             <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>

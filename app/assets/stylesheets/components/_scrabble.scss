@@ -16,6 +16,7 @@
   margin: 2px;
   color: white;
   background-color: $main-red;
+  transition: all 1s ease;
 
   .main-letter {
     font-size: 20px;
@@ -27,6 +28,10 @@
     top: 70%;
     left: 80%;
   }
+
+  &:hover {
+    transform: rotate(360deg);
+  }
 }
 
 .small {
@@ -36,13 +41,20 @@
     position: absolute;
     font-size: 5px;
   }
+
 }
 
 #rotate-right-10 {
-  transform: rotate(10deg)
+  transform: rotate(10deg);
+   &:hover {
+    transform: rotate(360deg);
+  }
 }
 
 #rotate-left-10 {
-  transform: rotate(-10deg)
+  transform: rotate(-10deg);
+  &:hover {
+    transform: rotate(360deg);
+  }
 }
 
