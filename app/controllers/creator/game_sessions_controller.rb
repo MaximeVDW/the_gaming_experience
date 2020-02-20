@@ -10,7 +10,7 @@ class Creator::GameSessionsController < ApplicationController
   end
 
   def create
-    @game = Game.find_by(name: params[:game_session]["game"])
+    @game = Game.find(params[:game_session]["game"].to_i)
     @params = game_session_params
     @params[:game] = @game
     @game_session = GameSession.new(@params)
@@ -28,6 +28,7 @@ class Creator::GameSessionsController < ApplicationController
   end
 
   def update
+    @game = Game.find(params[:id])
     @game_session = GameSession.find(params[:id])
     if @game_session.update(game_session_params)
       redirect_to player_game_sessions_path
