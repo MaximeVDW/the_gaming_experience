@@ -1,8 +1,15 @@
-<p>welcome to the edit page of games</p>
-<%= simple_form_for @game do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit 'Update Game', class: "btn-primary" %>
-<% end %>
-<%= link_to 'Home', games_path %>
+<div class="container">
+  <p class="edit-title">What's wrong bichon?</p>
+  <%= simple_form_for @game do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :min_player %>
+    <%= f.input :max_player %>
+    <%= f.input :category %>
+    <%= f.input :photo, as: :file, class: "choose-photo" %>
+    <%= f.submit 'Update Game', class: "btn btn-flat" %>
+  <% end %>
+
+</div>
+
+
