@@ -31,7 +31,7 @@ class GameSessionsController < ApplicationController
   end
 
   def destroy
-    @game_session = GameSession.find(params[:id]) # ???????
+    @game_session = GameSession.find(params[:id])
     @game_session.destroy
   end
 
