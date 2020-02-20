@@ -60,16 +60,16 @@ game5.save
 
 puts "Some games have been created"
 puts "Creating new game sessions..."
-GameSession.create!(game: game1, creator: user1, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (2*7*24*60*60), price: 10)
-GameSession.create!(game: game1, creator: user1, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (1.9*7*24*60*60), price: 15)
-GameSession.create!(game: game2, creator: user1, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (2*7*24*60*60), price: 12)
-GameSession.create!(game: game3, creator: user2, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (1.8*7*24*60*60), price: 25)
-GameSession.create!(game: game4, creator: user2, city: "Paris", description: "Balblablalbalalallalalalal", date: Time.now + (2.1*7*24*60*60), price: 30)
-GameSession.create!(game: game3, creator: user2, city: "Paris", description: "Balblablalbalalallalalalal", date: Time.now + (2.3*7*24*60*60), price: 25)
+GameSession.create!(game: game1, creator: user1, city: "Bordeaux", description: "Y aura du sexe aussi!", date: Time.now + (2*7*24*60*60), price: 10, address: '1 Quai de Bacalan, 33300 Bordeaux')
+GameSession.create!(game: game1, creator: user1, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (1.9*7*24*60*60), price: 15, address: '50 Rue du Hâ, 33000 Bordeaux')
+GameSession.create!(game: game2, creator: user1, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (2*7*24*60*60), price: 12, address: '10 Rue des Bahutiers, 33000 Bordeaux')
+GameSession.create!(game: game3, creator: user2, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (1.8*7*24*60*60), price: 25, address: '16 Place des Quinconces, 33000 Bordeaux')
+GameSession.create!(game: game4, creator: user2, city: "Paris", description: "Balblablalbalalallalalalal", date: Time.now + (2.1*7*24*60*60), price: 30, address: '16 Villa Gaudelet, Paris')
+GameSession.create!(game: game3, creator: user2, city: "Paris", description: "Balblablalbalalallalalalal", date: Time.now + (2.3*7*24*60*60), price: 25, address: '12 Villa Gaudelet, Paris')
 GameSession.create!(game: game4, creator: user2, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (2*7*24*60*60), price: 30)
 GameSession.create!(game: game2, creator: user3, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (1.7*7*24*60*60), price: 20)
 GameSession.create!(game: game5, creator: user3, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (2.1*7*24*60*60), price: 7)
-GameSession.create!(game: game5, creator: user4, city: "Paris", description: "Balblablalbalalallalalalal", date: Time.now + (2*7*24*60*60), price: 5)
+GameSession.create!(game: game5, creator: user4, city: "Paris", description: "Balblablalbalalallalalalal", date: Time.now + (2*7*24*60*60), price: 5, address: '26 Villa Gaudelet, Paris')
 GameSession.create!(game: game4, creator: user5, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (2*7*24*60*60), price: 6)
 
 GameSession.create!(game: game5, creator: user2, player: user1, city: "Paris", description: "Balblablalbalalallalalalal", date: Time.now + (1*7*24*60*60), price: 100)

@@ -21,6 +21,9 @@ gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.12.0'
 gem 'pg_search', '~> 2.3.0'
+gem 'geocoder'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
