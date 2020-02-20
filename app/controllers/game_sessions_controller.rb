@@ -12,12 +12,13 @@ class GameSessionsController < ApplicationController
       @game_sessions = GameSession.search_by_city_and_date(params[:query])
     end
 
-    @game_sessions.select {|session| session.geocoded?}
+    @geocoded_sessions = @game_sessions.select {|session| session.geocoded?}
     @markers = @geocoded_sessions.map do |session|
       {
         lat: session.latitude,
         lng: session.longitude
       }
+    end
 
   end
 
