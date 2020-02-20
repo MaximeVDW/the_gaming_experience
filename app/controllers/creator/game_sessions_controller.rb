@@ -2,7 +2,6 @@ class Creator::GameSessionsController < ApplicationController
   def index
     # idealement on devrait pouvoir ecrire current_user.game_sessions mais par rapport à creator et player....?
     @game_sessions = GameSession.where(creator: current_user)
-    raise
   end
 
   def new
@@ -35,6 +34,12 @@ class Creator::GameSessionsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @game_session = GameSession.find(params[:id]) # ???????
+    @game_session.destroy
+    redirect_to player_game_sessions_path
   end
 
   private
