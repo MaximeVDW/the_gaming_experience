@@ -115,7 +115,7 @@
               <div class="card-game-name"><%= game_session.game.name %></div>
               <% if game_session.booked == true %>
                 <i class="far fa-check-circle booked"></i>
-                <div class="booking-info"><p>Booked by : </p><%= link_to game_session.player.email, user_path(game_session.player) %></div>
+                <div class="booking-info"><p>Booked by : </p><%= link_to game_session.player.username, user_path(game_session.player), class:'username-booker' %></div>
               <% end %>
             </div>
             <div class="card-right-side">

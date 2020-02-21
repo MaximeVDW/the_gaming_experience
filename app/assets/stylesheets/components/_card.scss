@@ -21,19 +21,7 @@
   transition: all 0.5s ease;
 }
 
-.card:hover {
-  cursor: pointer;
-  width: 83%;
-  background-color: $main-red;
-  color: white;
-  .card-date {
-    border-bottom: 1px solid rgb(255, 255, 255);
-  }
-  .card-left-side {
-    border-right: 1px solid rgb(255, 255, 255);
-  }
 
-}
 
 .card-left-side {
   width: 30%;
@@ -88,6 +76,10 @@
 
   .booking-info {
     margin-left: 20px;
+
+    .username-booker {
+      color: $main-red;
+    }
   }
 }
 
@@ -120,7 +112,23 @@
   }
 }
 
+.card:hover {
+  cursor: pointer;
+  width: 83%;
+  background-color: $main-red;
+  color: white;
+  .card-date {
+    border-bottom: 1px solid rgb(255, 255, 255);
+  }
+  .card-left-side {
+    border-right: 1px solid rgb(255, 255, 255);
+  }
 
+  .username-booker {
+      color: white;
+    }
+
+}
 
 
 
