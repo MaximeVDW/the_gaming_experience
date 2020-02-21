@@ -21,7 +21,7 @@ picture3 = URI.open('https://res.cloudinary.com/dwsebrqxl/image/upload/v15821220
 user3.photo.attach(io: picture3, filename: 'user3.png', content_type: 'image/png')
 user3.save!
 
-user4 = User.new(email: "ddddd@ddddd.fr", password: "123456", phone_number: "0691235674", postal_code: "75000", street_number: "12", street: "cours balguerie stuttenberg", first_name: "Vanderwees", last_name: "Maxime", username: "Max", city: "paris")
+user4 = User.new(email: "ddddd@ddddd.fr", password: "123456", phone_number: "0691235674", postal_code: "75000", street_number: "12", street: "cours balguerie stuttenberg", first_name: "VanderWees", last_name: "Maxime", username: "Max", city: "paris")
 picture4 = URI.open('https://images.unsplash.com/photo-1505628346881-b72b27e84530?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')
 user4.photo.attach(io: picture4, filename: 'user4.png', content_type: 'image/png')
 user4.save!
@@ -72,17 +72,17 @@ GameSession.create!(game: game5, creator: user3, city: "Bordeaux", description: 
 GameSession.create!(game: game5, creator: user4, city: "Paris", description: "Balblablalbalalallalalalal", date: Time.now + (2*7*24*60*60), price: 5, address: '26 Villa Gaudelet, Paris')
 GameSession.create!(game: game4, creator: user5, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (2*7*24*60*60), price: 6)
 
-GameSession.create!(game: game5, creator: user2, booked: true, player: user1, city: "Paris", description: "Balblablalbalalallalalalal", date: Time.now + (1*7*24*60*60), price: 100)
-GameSession.create!(game: game5, creator: user3, booked: true, player: user1, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (1.5*7*24*60*60), price: 1)
-GameSession.create!(game: game4, creator: user4, booked: true, player: user1, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (2.6*7*24*60*60), price: 11)
-GameSession.create!(game: game4, creator: user1, booked: true, player: user2, city: "Paris", description: "Balblablalbalalallalalalal", date: Time.now + (1.4*7*24*60*60), price: 29)
-GameSession.create!(game: game4, creator: user1, booked: true, player: user2, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (2.2*7*24*60*60), price: 34)
-GameSession.create!(game: game4, creator: user3, booked: true, player: user2, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (2.8*7*24*60*60), price: 28)
-GameSession.create!(game: game4, creator: user2, booked: true, player: user3, city: "Paris", description: "Balblablalbalalallalalalal", date: Time.now + (2.1*7*24*60*60), price: 23)
-GameSession.create!(game: game2, creator: user4, booked: true, player: user3, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (1.6*7*24*60*60), price: 21)
-GameSession.create!(game: game2, creator: user3, booked: true, player: user4, city: "Paris", description: "Balblablalbalalallalalalal", date: Time.now + (2.6*7*24*60*60), price: 9)
-GameSession.create!(game: game1, creator: user4, booked: true, player: user5, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (2.3*7*24*60*60), price: 3)
-GameSession.create!(game: game1, creator: user1, booked: true, player: user5, city: "Bordeaux", description: "Balblablalbalalallalalalal", date: Time.now + (3*7*24*60*60), price: 2)
+GameSession.create!(game: game5, creator: user2, booked: true, player: user1, city: "Paris", description: "I'm feeling alone tonight please come fill my hole...", date: Time.now + (1*7*24*60*60), price: 100)
+GameSession.create!(game: game5, creator: user3, booked: true, player: user1, city: "Bordeaux", description: "I'm the tarot king, don't try me, I'm invincible!!!", date: Time.now + (1.5*7*24*60*60), price: 1)
+GameSession.create!(game: game4, creator: user4, booked: true, player: user1, city: "Bordeaux", description: "What is this fucking app, I cannot even order something to eat!", date: Time.now + (2.6*7*24*60*60), price: 11)
+GameSession.create!(game: game4, creator: user1, booked: true, player: user2, city: "Paris", description: "Where do I book a flat? I have lost my way in the net...", date: Time.now + (1.4*7*24*60*60), price: 29)
+GameSession.create!(game: game4, creator: user1, booked: true, player: user2, city: "Bordeaux", description: "Where is my spaceship? I can't find my cruiser, shitty planet!", date: Time.now + (2.2*7*24*60*60), price: 34)
+GameSession.create!(game: game4, creator: user3, booked: true, player: user2, city: "Bordeaux", description: "I have a whole day to lose, let's play risk! Come at me with all you've got!", date: Time.now + (2.8*7*24*60*60), price: 28)
+GameSession.create!(game: game4, creator: user2, booked: true, player: user3, city: "Paris", description: "Hope to have a happy ending to this wonderful night.", date: Time.now + (2.1*7*24*60*60), price: 23)
+GameSession.create!(game: game2, creator: user4, booked: true, player: user3, city: "Bordeaux", description: "I don't know how to play, please come to show me...", date: Time.now + (1.6*7*24*60*60), price: 21)
+GameSession.create!(game: game2, creator: user3, booked: true, player: user4, city: "Paris", description: "Don't come to make friends, we're gonna play monopoly. I have a cam pointed at the bank for tricksters.", date: Time.now + (2.6*7*24*60*60), price: 9)
+GameSession.create!(game: game1, creator: user4, booked: true, player: user5, city: "Bordeaux", description: "App de merde!! ou eskon va chercher ses vices?", date: Time.now + (2.3*7*24*60*60), price: 3)
+GameSession.create!(game: game1, creator: user1, booked: true, player: user5, city: "Bordeaux", description: "Hello? Is somebody there? Contact does not work, I have sent 47 emails...", date: Time.now + (3*7*24*60*60), price: 2)
 puts "Some game sessions have been created"
 puts "Congratulation, your database is clean and has some elements from the seed"
 
