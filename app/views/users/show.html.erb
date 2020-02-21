@@ -35,9 +35,18 @@
       <div class="game-session-footer btn" onclick="location.href='<%= player_game_sessions_path %>'">
           <p> Retour à ton dashboard </p>
       </div>
+      <div>
+        <% @my_friends.each do |friend| %>
+          <div class="card" onclick="location.href='<%= user_path(friend) %>'">
+          </div>
+        <% end %>
+      </div>
     <% else %>
       <div class="filter-container">
         <h1>Les sessions de <%= @user.username %></h1>
+      </div>
+      <div>
+          <%= link_to 'Ajouter à ta liste de potes', user_path(friend_list: @user[:friend_list]+"#{@user.id},"), method: :patch %>
       </div>
       <div class="personal-container">
         <div class="map-and-cards-container" id="map-and-cards-container">
