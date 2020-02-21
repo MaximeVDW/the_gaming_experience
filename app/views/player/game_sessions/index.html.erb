@@ -8,18 +8,18 @@
 <div class="d-flex mt-5 justify-content-around">
   <div class="btn-dashboard-container">
     <div class="btn-flat h4">
-      <%= link_to "Join a Game-session", game_sessions_path %>
+      <%= link_to "Rejoins une Game-session", game_sessions_path %>
     </div>
   </div>
   <div class="btn-dashboard-container">
     <div class="btn-flat h4">
-      <%= link_to "create a Game-session", new_creator_game_session_path %>
+      <%= link_to "Balance ta Game-session", new_creator_game_session_path %>
     </div>
   </div>
 </div>
 <br>
 <div class="filter-container">
-  <h1>Tonplanning mon Bichon ! </h1>
+  <h1>Ton planning mon Bichon ! </h1>
 </div>
 <br>
 
@@ -27,7 +27,7 @@
   <div class="cards" style="width:50%">
     <h3 class="" style="color: #cb1b67">PLAYER</h3>
     <br>
-    
+
     <% @game_sessions.each do |game_session| %>
       <% if game_session.date >= @today %>
 
