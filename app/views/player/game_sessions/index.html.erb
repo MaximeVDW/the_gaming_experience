@@ -21,71 +21,124 @@
 <div class="filter-container">
   <h1>Tonplanning mon Bichon ! </h1>
 </div>
-<div class="d-flex justify-content-between">
+<br>
 
+<div class="d-flex p-2 justify-content-between">
   <div class="cards" style="width:50%">
     <h3 class="" style="color: #cb1b67">PLAYER</h3>
     <br>
+    
     <% @game_sessions.each do |game_session| %>
-      <% if game_session == false %>
-      <% end %>
-      <% if game_session.player_id == current_user.id %>
-        <div class="card" onclick="location.href='<%= game_session_path(game_session) %>'">
-          <div class="card-left-side">
-            <div class="card-date"><%= game_session.date %></div>
-            <div class="card-city"><%= game_session.city %></div>
-          </div>
-          <div class="card-middle">
-            <div class="card-game-name"><%= game_session.game.name %></div>
-          </div>
-          <div class="card-right-side">
-            <div class="card-price"><%= game_session.price %>€</div>
-            <div class="card-avatar-container">
-              <% if game_session.creator.photo.attached? %>
-                <div class="card-avatar" style="background-image:url('<%= cl_image_path game_session.creator.photo.key %>')"></div>
-              <% else %>
-                <div class="card-avatar" style="background-image:url('<%= @image_placeholder %>')"></div>
-              <% end %>
+      <% if game_session.date >= @today %>
+
+        <% if game_session.date == @today && @today_use == true %>
+          <h2 class="date-delimiter" >Sessions Today</h2>
+          <% @today_use = false %>
+
+        <% elsif game_session.date <= @next_sunday && @this_week_use == true %>
+          <h2 class="date-delimiter">Sessions this Week</h2>
+          <% @this_week_use = false %>
+
+        <% elsif game_session.date.year == @today.year && game_session.date.month == @today.month && @this_month_use == true %>
+          <h2 class="date-delimiter">Sessions this Month</h2>
+          <% @this_month_use = false %>
+
+        <% elsif game_session.date.year == @today.year && @later_this_year_use == true %>
+          <h2 class="date-delimiter">Sessions later this Year</h2>
+          <% @later_this_year_use = false %>
+
+        <% elsif game_session.date.year > @today.year && @next_year_use == true %>
+          <h2 class="date-delimiter">Sessions after this Year</h2>
+          <% @next_this_year = false %>
+
+        <% end %>
+
+        <% if game_session.player_id == current_user.id %>
+          <div class="card" onclick="location.href='<%= game_session_path(game_session) %>'">
+            <div class="card-left-side">
+              <div class="card-date"><%= game_session.date %></div>
+              <div class="card-city"><%= game_session.city %></div>
+            </div>
+            <div class="card-middle">
+              <div class="card-game-name"><%= game_session.game.name %></div>
+            </div>
+            <div class="card-right-side">
+              <div class="card-price"><%= game_session.price %>€</div>
+              <div class="card-avatar-container">
+                <% if game_session.creator.photo.attached? %>
+                  <div class="card-avatar" style="background-image:url('<%= cl_image_path game_session.creator.photo.key %>')"></div>
+                <% else %>
+                  <div class="card-avatar" style="background-image:url('<%= @image_placeholder %>')"></div>
+                <% end %>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
 
   <div class="cards" style="width:50%">
+
     <h3 class="" style="color: #cb1b67">MASTER</h3>
     <br>
+    <% @today_use = true %>
+    <% @this_week_use = true %>
+    <% @this_month_use = true %>
+    <% @later_this_year_use = true %>
+    <% @next_year_use = true %>
+
     <% @game_sessions.each do |game_session| %>
-    <% if game_session.creator_id == current_user.id %>
-      <div class="card" onclick="location.href='<%= game_session_path(game_session) %>'">
-        <div class="card-left-side">
-          <div class="card-date"><%= game_session.date %></div>
-          <div class="card-city"><%= game_session.city %></div>
-        </div>
-      <div class="card-middle">
-        <div class="card-game-name"><%= game_session.game.name %></div>
-        <% if game_session.booked == true %>
-          <i class="far fa-check-circle booked"></i>
-          <div class="booking-info"><p>Booked by : </p><%= link_to game_session.player.email, user_path(game_session.player) %></div>
+      <% if game_session.date >= @today %>
+
+        <% if game_session.date == @today && @today_use == true %>
+          <h2 class="date-delimiter" >Sessions Today</h2>
+          <% @today_use = false %>
+
+        <% elsif game_session.date <= @next_sunday && @this_week_use == true %>
+          <h2 class="date-delimiter">Sessions this Week</h2>
+          <% @this_week_use = false %>
+
+        <% elsif game_session.date.year == @today.year && game_session.date.month == @today.month && @this_month_use == true %>
+          <h2 class="date-delimiter">Sessions this Month</h2>
+          <% @this_month_use = false %>
+
+        <% elsif game_session.date.year == @today.year && @later_this_year_use == true %>
+          <h2 class="date-delimiter">Sessions later this Year</h2>
+          <% @later_this_year_use = false %>
+
+        <% elsif game_session.date.year > @today.year && @next_year_use == true %>
+          <h2 class="date-delimiter">Sessions after this Year</h2>
+          <% @next_this_year = false %>
+
         <% end %>
-      </div>
-      <div class="card-right-side">
-        <div class="card-price"><%= game_session.price %>€</div>
-          <div class="card-avatar-container">
-          <% if game_session.creator.photo.attached? %>
-            <div class="card-avatar" style="background-image:url('<%= cl_image_path game_session.creator.photo.key %>')"></div>
-          <% else %>
-            <div class="card-avatar" style="background-image:url('<%= @image_placeholder %>')"></div>
-          <% end %>
-        </div>
-      </div>
-      </div>
-    <% end %>
+
+        <% if game_session.creator_id == current_user.id %>
+          <div class="card" onclick="location.href='<%= game_session_path(game_session) %>'">
+            <div class="card-left-side">
+              <div class="card-date"><%= game_session.date %></div>
+              <div class="card-city"><%= game_session.city %></div>
+            </div>
+            <div class="card-middle">
+              <div class="card-game-name"><%= game_session.game.name %></div>
+              <% if game_session.booked == true %>
+                <i class="far fa-check-circle booked"></i>
+                <div class="booking-info"><p>Booked by : </p><%= link_to game_session.player.email, user_path(game_session.player) %></div>
+              <% end %>
+            </div>
+            <div class="card-right-side">
+              <div class="card-price"><%= game_session.price %>€</div>
+              <div class="card-avatar-container">
+                <% if game_session.creator.photo.attached? %>
+                  <div class="card-avatar" style="background-image:url('<%= cl_image_path game_session.creator.photo.key %>')"></div>
+                <% else %>
+                  <div class="card-avatar" style="background-image:url('<%= @image_placeholder %>')"></div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>
-
-
-
-
