@@ -9,6 +9,7 @@ class GameSessionsController < ApplicationController
     @image_placeholder = "https://images.pexels.com/photos/3700513/pexels-photo-3700513.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
 
     @game_sessions = GameSession.all.sort_by {|game_session| game_session.date}
+
     if params[:query].present?
     @game_sessions = GameSession.all.search_by_city(params[:query])
     end

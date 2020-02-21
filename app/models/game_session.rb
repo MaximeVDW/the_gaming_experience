@@ -10,7 +10,7 @@ class GameSession < ApplicationRecord
   validates :creator, presence: true
   validates :price, presence: true
   validates :date, presence: true
-  validates :city, presence: true
+
 
   include PgSearch::Model
   pg_search_scope :search_by_city,
