@@ -3,7 +3,7 @@
   <div class="edit-container">
     <h1>
       <% if @user.username != nil && @user.username != "" %>
-        Dear <%= @user.username %>, welcome to your profile!
+        <%= @user.username %>, mets jour ton profile!
       <% else %>
         Putain mais t'as même pas de Username!!! Vas y, remplis ton profile!!
       <% end %>
@@ -24,7 +24,7 @@
           <%= f.input :postal_code %>
           <%= f.input :city %>
           <div class="btn-wrapper">
-            <%= f.submit 'Update your profile', class: "btn btn-flat" %>
+            <%= f.submit 'Mets à jour ton profile', class: "btn btn-flat" %>
           </div>
         <% end %>
     </div>

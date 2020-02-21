@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="edit-title">Si tu veux changer des trucs importants...></h2>
+  <h2 class="edit-title">Si tu veux changer des trucs importants...</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
@@ -34,7 +34,7 @@
 
   <h2 class="edit-title">T'es pas content bro?</h2>
 
-  <p> <%= link_to "Fait peter l'account!!!", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-red", style: "color: white;" %></p>
+  <h3> <%= link_to "En appuyant ici tu fais peter l'account!!!", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-red", style: "color: white;" %></h3>
 
   <%= link_to "Retour", :back %>
 
