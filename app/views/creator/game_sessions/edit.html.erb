@@ -1,11 +1,16 @@
-<p class="edit-title">O game Maaaster, you can modify the session :</p>
-
-<div class="container">
-  <%= simple_form_for @game_session, url: creator_game_session_path(@game_session), method: :patch do |f| %>
-    <%= f.input :description %>
-    <%= f.input :date %>
-    <%= f.input :price %>
-    <%= f.submit 'Update Game Session', class: "btn-primary" %>
-  <% end %>
+<div class="main-container">
+  <div class="edit-container">
+    <h1>O game Maaaster, you can modify the session :</h1>
+    <div class="edit-form-container">
+      <%= simple_form_for @game_session, url: creator_game_session_path(@game_session), method: :patch do |f| %>
+        <%= f.input :description %>
+        <%= f.input :date %>
+        <%= f.input :price %>
+        <div class="btn-wrapper">
+          <%= f.submit 'Update Game Session', class: "btn btn-flat" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 

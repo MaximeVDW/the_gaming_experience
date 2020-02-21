@@ -15,7 +15,7 @@
   </div>
 
   <div class="cards">
-    <%= link_to 'Create a new game', new_game_path, class: "btn btn-flat" %>
+    <%= link_to 'Create a new game', new_game_path, class: "btn-ghost" %>
     <% @games.each do |game| %>
         <div class="card" onclick="location.href='<%= game_path(game) %>'">
 
@@ -40,3 +40,4 @@
   </div>
 
 </div>
+
