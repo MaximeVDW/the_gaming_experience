@@ -1,42 +1,42 @@
-<div class="container">
-  <h2 class="edit-title">Si tu veux changer des trucs importants...</h2>
+<div class="main-container">
+  <div class="edit-container">
+    <h1>Si tu veux changer des trucs importants...</h1>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= f.error_notification %>
+      <div class="form-inputs">
+        <%= f.input :email, required: true, autofocus: true %>
 
-    <div class="form-inputs">
-      <%= f.input :email, required: true, autofocus: true %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-      <% end %>
+        <%= f.input :password,
+                    label: 'Le nouveau mot de passe que tu veux mettre mec!',
+                    hint: "Tu mets rien si tu veux pas changer, réflechis man, m'enfin!!!",
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    label: 'Avec toi on sait jamais alors réecris le pour voir ;-)',
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :current_password,
+                    label: 'Et on confirme tout ces changements avec ton mot de passe actuel...',
+                    hint: "Le même que d'hab, sois pas gland...",
+                    required: true,
+                    input_html: { autocomplete: "current-password" } %>
+      </div>
 
-      <%= f.input :password,
-                  label: 'Le nouveau mot de passe que tu veux mettre mec!',
-                  hint: "Tu mets rien si tu veux pas changer, réflechis man, m'enfin!!!",
-                  required: false,
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  label: 'Avec toi on sait jamais alors réecris le pour voir ;-)',
-                  required: false,
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :current_password,
-                  label: 'Et on confirme tout ces changements avec ton mot de passe actuel...',
-                  hint: "le même que d'hab, sois pas gland...",
-                  required: true,
-                  input_html: { autocomplete: "current-password" } %>
-    </div>
+      <div class="form-actions">
+        <%= f.button :submit, "On valide tout ce bordel!!!", class: "btn btn-flat" %>
+      </div>
+    <% end %>
 
-    <div class="form-actions">
-      <%= f.button :submit, "On valide tout ce bordel!!!", class: "btn btn-flat" %>
-    </div>
-  <% end %>
+    <h2 class="edit-title">T'es pas content bro?</h2>
 
-  <h2 class="edit-title">T'es pas content bro?</h2>
+    <h3> <%= link_to "En appuyant ici tu fais peter l'account!!!", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-red", style: "color: white;" %></h3>
 
-  <h3> <%= link_to "En appuyant ici tu fais peter l'account!!!", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-red", style: "color: white;" %></h3>
-
-  <%= link_to "Retour", :back %>
-
+    <%= link_to "Retour", :back, class:'btn-ghost' %>
+  </div>
 </div>
 
