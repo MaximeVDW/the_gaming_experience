@@ -28,8 +28,8 @@ class Creator::GameSessionsController < ApplicationController
   end
 
   def update
-    @game = Game.find(params[:id])
     @game_session = GameSession.find(params[:id])
+    @game = @game_session.game
     if @game_session.update(game_session_params)
       redirect_to player_game_sessions_path
     else
