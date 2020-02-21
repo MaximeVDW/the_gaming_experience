@@ -1,16 +1,24 @@
 
 <div class="container">
 
-  <div class="top-container">
-    <h1>Joins toi à moi Bichon!</h1>
-    <div class="btn-join-session">
-      <% if @game_session.booked? %>
-          <%= link_to 'Already taken', game_session_path(@game_session), class: "btn btn-flat" %>
-        <% else %>
-          <%= link_to 'Book Session', edit_game_session_path, class: "btn btn-flat" %>
-        <% end %>
+  <% if @game_session.creator.id == current_user[:id] %>
+    <div class="top-container">
+      <h1>C une de tes sessions Ca Bro!!!</h1>
     </div>
-  </div>
+  <% else %>
+    <div class="top-container">
+      <h1>Joins toi à moi Bichon!</h1>
+      <div class="btn-join-session">
+        <% if @game_session.booked? %>
+            <%= link_to 'Already taken', game_session_path(@game_session), class: "btn btn-flat" %>
+          <% else %>
+            <%= link_to 'Book Session', edit_game_session_path, class: "btn btn-flat" %>
+          <% end %>
+      </div>
+    </div>
+  <% end %>
+
+
 
   <div class="game-session-content">
     <div class="game-session-show-title">
