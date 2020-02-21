@@ -3,6 +3,12 @@ const turnEffect = () => {
   letters.forEach((letter) => {
     letter.classList.toggle('turn-effect')
   });
+
+  // letters.forEach((letter) => {
+  //   letter.addEventListener('mouseover' => {
+  //     letter.classList.toggle('turn-effect')
+  //   });
+  // })
 }
 
 export { turnEffect };
