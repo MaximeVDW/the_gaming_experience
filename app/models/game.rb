@@ -1,5 +1,5 @@
 class Game < ApplicationRecord
-  has_many :game_sessions
+  has_many :game_sessions, dependent: :destroy
   has_one_attached :photo
 
   validates :name, presence: true, uniqueness: true
