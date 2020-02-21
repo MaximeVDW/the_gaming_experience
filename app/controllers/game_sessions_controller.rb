@@ -11,7 +11,7 @@ class GameSessionsController < ApplicationController
     @game_sessions = GameSession.all.sort_by {|game_session| game_session.date}
 
     if params[:query].present?
-    @game_sessions = GameSession.all.search_by_city(params[:query])
+    @game_sessions = GameSession.all.search_by_city(params[:query]).sort_by {|game_session| game_session.date}
     end
 
     @geocoded_sessions = @game_sessions.select {|session| session.geocoded?}
