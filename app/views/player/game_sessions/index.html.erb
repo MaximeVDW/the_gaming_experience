@@ -1,63 +1,68 @@
-<div class="banner-dashboard" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png)">
+<div class="banner-dashboard" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://tonbarbier.com/wp-content/uploads/2019/03/les-jeux-de-societe-la-meilleure-facon-de-samuser-entre-amis-549555.jpg)">
   <div class="banner-container">
     <h1>Dashboard</h1>
   </div>
 </div>
 <br>
-<br>
-<div class="filter-container">
-  <h1>Kestuveufer mon Bichon ?</h1>
+
+<div class="d-flex mt-5 justify-content-around">
+  <div class="btn-dashboard-container">
+    <div class="btn-flat h4">
+      <%= link_to "Join a Game-session", game_sessions_path %>
+    </div>
+  </div>
+  <div class="btn-dashboard-container">
+    <div class="btn-flat h4">
+      <%= link_to "create a Game-session", new_creator_game_session_path %>
+    </div>
+  </div>
 </div>
 <br>
-
-<div class="d-flex p-2 justify-content-between">
+<div class="filter-container">
+  <h1>Tonplanning mon Bichon ! </h1>
+</div>
+<div class="d-flex justify-content-between">
 
   <div class="cards" style="width:50%">
-    <div class="btn-dashboard-container">
-      <div class="btn-flat">
-        <%= link_to "Join a Game-session", game_sessions_path %>
-      </div>
-    </div>
+    <h3 class="" style="color: #cb1b67">PLAYER</h3>
+    <br>
     <% @game_sessions.each do |game_session| %>
-    <% if game_session == false %>
+      <% if game_session == false %>
+      <% end %>
+      <% if game_session.player_id == current_user.id %>
+        <div class="card" onclick="location.href='<%= game_session_path(game_session) %>'">
+          <div class="card-left-side">
+            <div class="card-date"><%= game_session.date %></div>
+            <div class="card-city"><%= game_session.city %></div>
+          </div>
+          <div class="card-middle">
+            <div class="card-game-name"><%= game_session.game.name %></div>
+          </div>
+          <div class="card-right-side">
+            <div class="card-price"><%= game_session.price %>€</div>
+            <div class="card-avatar-container">
+              <% if game_session.creator.photo.attached? %>
+                <div class="card-avatar" style="background-image:url('<%= cl_image_path game_session.creator.photo.key %>')"></div>
+              <% else %>
+                <div class="card-avatar" style="background-image:url('<%= @image_placeholder %>')"></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-    <% if game_session.player_id == current_user.id %>
+  </div>
+
+  <div class="cards" style="width:50%">
+    <h3 class="" style="color: #cb1b67">MASTER</h3>
+    <br>
+    <% @game_sessions.each do |game_session| %>
+    <% if game_session.creator_id == current_user.id %>
       <div class="card" onclick="location.href='<%= game_session_path(game_session) %>'">
         <div class="card-left-side">
           <div class="card-date"><%= game_session.date %></div>
           <div class="card-city"><%= game_session.city %></div>
         </div>
-        <div class="card-middle">
-          <div class="card-game-name"><%= game_session.game.name %></div>
-        </div>
-        <div class="card-right-side">
-          <div class="card-price"><%= game_session.price %>€</div>
-          <div class="card-avatar-container">
-            <% if game_session.creator.photo.attached? %>
-              <div class="card-avatar" style="background-image:url('<%= cl_image_path game_session.creator.photo.key %>')"></div>
-            <% else %>
-              <div class="card-avatar" style="background-image:url('<%= @image_placeholder %>')"></div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-    <% end %>
-  </div>
-
-  <div class="cards" style="width:50%">
-    <div class="btn-dashboard-container">
-      <div class="btn-flat">
-        <%= link_to "create a Game-session", new_creator_game_session_path %>
-      </div>
-    </div>
-    <% @game_sessions.each do |game_session| %>
-    <% if game_session.creator_id == current_user.id %>
-      <div class="card" onclick="location.href='<%= game_session_path(game_session) %>'">
-        <div class="card-left-side">
-        <div class="card-date"><%= game_session.date %></div>
-        <div class="card-city"><%= game_session.city %></div>
-      </div>
       <div class="card-middle">
         <div class="card-game-name"><%= game_session.game.name %></div>
         <% if game_session.booked == true %>
