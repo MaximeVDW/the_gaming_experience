@@ -1,7 +1,7 @@
 
 <div class="container">
 
-  <% if @game_session.creator.id == current_user[:id] %>
+  <% if current_user && @game_session.creator.id == current_user[:id] %>
     <div class="top-container">
       <h1>C une de tes sessions Ca Bro!!!</h1>
     </div>
