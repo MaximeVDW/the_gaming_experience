@@ -1,25 +1,15 @@
 <div class="banner-dashboard" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://tonbarbier.com/wp-content/uploads/2019/03/les-jeux-de-societe-la-meilleure-facon-de-samuser-entre-amis-549555.jpg)">
-  <div class="banner-container">
-    <h1>Dashboard</h1>
-  </div>
-</div>
-<br>
-
-<div class="d-flex mt-5 justify-content-around">
-  <div class="btn-dashboard-container">
-    <div class="btn-flat h4">
-      <%= link_to "Join a Game-session", game_sessions_path %>
+  <div class="banner-container-dashboard">
+    <h1>Ton Planning mon Bichon !</h1>
+    <div class="buttons-container">
+      <div class="button-join-container">
+        <%= link_to "Join a Game-session", game_sessions_path, class:'btn btn-flat' %>
+      </div>
+      <div class="button-create-container">
+        <%= link_to "Create a Game-session", new_creator_game_session_path, class:'btn btn-flat'  %>
+      </div>
     </div>
   </div>
-  <div class="btn-dashboard-container">
-    <div class="btn-flat h4">
-      <%= link_to "create a Game-session", new_creator_game_session_path %>
-    </div>
-  </div>
-</div>
-<br>
-<div class="filter-container">
-  <h1>Tonplanning mon Bichon ! </h1>
 </div>
 <br>
 
@@ -27,33 +17,34 @@
   <div class="cards" style="width:50%">
     <h3 class="" style="color: #cb1b67">PLAYER</h3>
     <br>
-    
+
     <% @game_sessions.each do |game_session| %>
-      <% if game_session.date >= @today %>
+      <% if game_session.player_id == current_user.id %>
+        <% if game_session.date >= @today %>
 
-        <% if game_session.date == @today && @today_use == true %>
-          <h2 class="date-delimiter" >Sessions Today</h2>
-          <% @today_use = false %>
+          <% if game_session.date == @today && @today_use == true %>
+            <h2 class="date-delimiter" >Sessions Today</h2>
+            <% @today_use = false %>
 
-        <% elsif game_session.date <= @next_sunday && @this_week_use == true %>
-          <h2 class="date-delimiter">Sessions this Week</h2>
-          <% @this_week_use = false %>
+          <% elsif game_session.date > @today && game_session.date <= @next_sunday && @this_week_use == true %>
+            <h2 class="date-delimiter">Sessions this Week</h2>
+            <% @this_week_use = false %>
 
-        <% elsif game_session.date.year == @today.year && game_session.date.month == @today.month && @this_month_use == true %>
-          <h2 class="date-delimiter">Sessions this Month</h2>
-          <% @this_month_use = false %>
+          <% elsif game_session.date > @next_sunday && game_session.date.year == @today.year && game_session.date.month == @today.month && @this_month_use == true %>
+            <h2 class="date-delimiter">Sessions this Month</h2>
+            <% @this_month_use = false %>
 
-        <% elsif game_session.date.year == @today.year && @later_this_year_use == true %>
-          <h2 class="date-delimiter">Sessions later this Year</h2>
-          <% @later_this_year_use = false %>
+          <% elsif game_session.date.month > @today.month && game_session.date.year == @today.year && @later_this_year_use == true %>
+            <h2 class="date-delimiter">Sessions later this Year</h2>
+            <% @later_this_year_use = false %>
 
-        <% elsif game_session.date.year > @today.year && @next_year_use == true %>
-          <h2 class="date-delimiter">Sessions after this Year</h2>
-          <% @next_this_year = false %>
+          <% elsif game_session.date.year > @today.year && @next_year_use == true %>
+            <h2 class="date-delimiter">Sessions after this Year</h2>
+            <% @next_this_year = false %>
 
-        <% end %>
+          <% end %>
 
-        <% if game_session.player_id == current_user.id %>
+
           <div class="card" onclick="location.href='<%= game_session_path(game_session) %>'">
             <div class="card-left-side">
               <div class="card-date"><%= game_session.date %></div>
@@ -89,31 +80,32 @@
     <% @next_year_use = true %>
 
     <% @game_sessions.each do |game_session| %>
-      <% if game_session.date >= @today %>
+      <% if game_session.creator_id == current_user.id %>
+        <% if game_session.date >= @today %>
 
-        <% if game_session.date == @today && @today_use == true %>
-          <h2 class="date-delimiter" >Sessions Today</h2>
-          <% @today_use = false %>
+          <% if game_session.date == @today && @today_use == true %>
+            <h2 class="date-delimiter" >Sessions Today</h2>
+            <% @today_use = false %>
 
-        <% elsif game_session.date <= @next_sunday && @this_week_use == true %>
-          <h2 class="date-delimiter">Sessions this Week</h2>
-          <% @this_week_use = false %>
+          <% elsif game_session.date > @today && game_session.date <= @next_sunday && @this_week_use == true %>
+            <h2 class="date-delimiter">Sessions this Week</h2>
+            <% @this_week_use = false %>
 
-        <% elsif game_session.date.year == @today.year && game_session.date.month == @today.month && @this_month_use == true %>
-          <h2 class="date-delimiter">Sessions this Month</h2>
-          <% @this_month_use = false %>
+          <% elsif game_session.date > @next_sunday && game_session.date.year == @today.year && game_session.date.month == @today.month && @this_month_use == true %>
+            <h2 class="date-delimiter">Sessions this Month</h2>
+            <% @this_month_use = false %>
 
-        <% elsif game_session.date.year == @today.year && @later_this_year_use == true %>
-          <h2 class="date-delimiter">Sessions later this Year</h2>
-          <% @later_this_year_use = false %>
+          <% elsif game_session.date.month > @today.month && game_session.date.year == @today.year && @later_this_year_use == true %>
+            <h2 class="date-delimiter">Sessions later this Year</h2>
+            <% @later_this_year_use = false %>
 
-        <% elsif game_session.date.year > @today.year && @next_year_use == true %>
-          <h2 class="date-delimiter">Sessions after this Year</h2>
-          <% @next_this_year = false %>
+          <% elsif game_session.date.year > @today.year && @next_year_use == true %>
+            <h2 class="date-delimiter">Sessions after this Year</h2>
+            <% @next_this_year = false %>
 
-        <% end %>
+          <% end %>
 
-        <% if game_session.creator_id == current_user.id %>
+
           <div class="card" onclick="location.href='<%= game_session_path(game_session) %>'">
             <div class="card-left-side">
               <div class="card-date"><%= game_session.date %></div>
