@@ -1,28 +1,33 @@
-<h1 class="edit-title">
-  <% if @user.username != nil && @user.username != "" %>
-    Dear <%= @user.username %>, welcome to your profile!
-  <% else %>
-    Putain mais t'as même pas de Username!!! Vas y, remplis ton profile!!
-  <% end %>
-</h1>
 
-<div class="container">
-  <%= simple_form_for @user do |f| %>
-    <h2>User info</h2>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :username %>
-    <h2>Photo</h2>
-    <%= f.input :photo %>
-    <h2>Adresse</h2>
-    <%= f.input :phone_number %>
-    <%= f.input :street_number %>
-    <%= f.input :street %>
-    <%= f.input :postal_code %>
-    <%= f.input :city %>
+<div class="main-container">
+  <div class="edit-container">
+    <h1>
+      <% if @user.username != nil && @user.username != "" %>
+        Dear <%= @user.username %>, welcome to your profile!
+      <% else %>
+        Putain mais t'as même pas de Username!!! Vas y, remplis ton profile!!
+      <% end %>
+    </h1>
 
-    <div class="bg-transparent border-0 text-white">
-      <%= f.submit 'Update your profile', class: "btn-primary" %>
+    <div class="edit-form-container">
+       <%= simple_form_for @user do |f| %>
+          <h2>User info</h2>
+          <%= f.input :first_name %>
+          <%= f.input :last_name %>
+          <%= f.input :username %>
+          <h2>Photo</h2>
+          <%= f.input :photo %>
+          <h2>Adresse</h2>
+          <%= f.input :phone_number %>
+          <%= f.input :street_number %>
+          <%= f.input :street %>
+          <%= f.input :postal_code %>
+          <%= f.input :city %>
+          <div class="btn-wrapper">
+            <%= f.submit 'Update your profile', class: "btn btn-flat" %>
+          </div>
+        <% end %>
     </div>
- <% end %>
+  </div>
 </div>
+
