@@ -23,8 +23,10 @@
   <div class="map-and-cards-container" id="map-and-cards-container">
     <div class="cards-container" id="cards-container">
       <div class="cards">
+
         <% @game_sessions.each do |game_session| %>
-          <% if game_session.booked == false && game_session.date >= DateTime.now %>
+
+          <% if game_session.booked == false && game_session.date >= Date.today %>
 
             <% if game_session.date == @today && @today_use == true %>
               <h2 class="date-delimiter" >Sessions Today</h2>

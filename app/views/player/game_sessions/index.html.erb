@@ -1,23 +1,33 @@
-<div class="banner-dashboard" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png)">
+<div class="banner-dashboard" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://tonbarbier.com/wp-content/uploads/2019/03/les-jeux-de-societe-la-meilleure-facon-de-samuser-entre-amis-549555.jpg)">
   <div class="banner-container">
     <h1>Dashboard</h1>
   </div>
 </div>
 <br>
+
+<div class="d-flex mt-5 justify-content-around">
+  <div class="btn-dashboard-container">
+    <div class="btn-flat h4">
+      <%= link_to "Join a Game-session", game_sessions_path %>
+    </div>
+  </div>
+  <div class="btn-dashboard-container">
+    <div class="btn-flat h4">
+      <%= link_to "create a Game-session", new_creator_game_session_path %>
+    </div>
+  </div>
+</div>
 <br>
 <div class="filter-container">
-  <h1>Kestuveufer mon Bichon ?</h1>
+  <h1>Tonplanning mon Bichon ! </h1>
 </div>
 <br>
 
 <div class="d-flex p-2 justify-content-between">
   <div class="cards" style="width:50%">
-    <div class="btn-dashboard-container">
-      <div class="btn-flat">
-        <%= link_to "Join a Game-session", game_sessions_path %>
-      </div>
-    </div>
-
+    <h3 class="" style="color: #cb1b67">PLAYER</h3>
+    <br>
+    
     <% @game_sessions.each do |game_session| %>
       <% if game_session.date >= @today %>
 
@@ -69,12 +79,9 @@
   </div>
 
   <div class="cards" style="width:50%">
-    <div class="btn-dashboard-container">
-      <div class="btn-flat">
-        <%= link_to "create a Game-session", new_creator_game_session_path %>
-      </div>
-    </div>
 
+    <h3 class="" style="color: #cb1b67">MASTER</h3>
+    <br>
     <% @today_use = true %>
     <% @this_week_use = true %>
     <% @this_month_use = true %>
@@ -116,6 +123,7 @@
               <div class="card-game-name"><%= game_session.game.name %></div>
               <% if game_session.booked == true %>
                 <i class="far fa-check-circle booked"></i>
+                <div class="booking-info"><p>Booked by : </p><%= link_to game_session.player.email, user_path(game_session.player) %></div>
               <% end %>
             </div>
             <div class="card-right-side">

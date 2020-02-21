@@ -6,7 +6,14 @@
         <%= f.input :date %>
         <%= f.input :game, collection: Game.all %>
         <%= f.input :price %>
-        <%= f.input :address %>
+        <div class="d-flex justify-content-between">
+          <%= f.input :street_number, input_html: {id: 'street_number', value: current_user.street_number }%>
+          <%= f.input :street, class: "form-grow" , input_html: {id: 'street', value: current_user.street }%>
+        </div>
+        <div class="d-flex justify-content-between">
+          <%= f.input :postal_code, input_html: {id: 'postal_code', value: current_user.postal_code } %>
+          <%= f.input :city, class: "form-grow", input_html: {id: 'city', value: current_user.city } %>
+        </div>
         <%= f.input :description %>
         <div class="btn-wrapper">
           <%= f.submit "Add a game-session", class: "btn btn-flat"%>

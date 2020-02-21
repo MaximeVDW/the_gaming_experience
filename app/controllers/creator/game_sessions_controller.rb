@@ -1,4 +1,4 @@
-class Creator::GameSessionsController < ApplicationController
+  class Creator::GameSessionsController < ApplicationController
   def index
     # idealement on devrait pouvoir ecrire current_user.game_sessions mais par rapport à creator et player....?
     game_sessions = GameSession.where(creator: current_user)
@@ -14,6 +14,7 @@ class Creator::GameSessionsController < ApplicationController
     @params = game_session_params
     @params[:game] = @game
     @game_session = GameSession.new(@params)
+    @game_session.address = "#{@params[:street_number]} #{@params[:street]}, #{@params[:postal_code]} #{@params[:city]}"
     @creator = current_user
     @game_session.creator = @creator
     if @game_session.save
