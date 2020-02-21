@@ -1,16 +1,21 @@
-<div class="container pt-3">
-  <h1>Create you game-session</h1>
-  <div class="container mb-5 pb-3">
-    <%= simple_form_for (@game_session), :url => url_for(:action => 'create', :controller => 'game_sessions'), :method => 'post' do |f| %>
-      <%= f.input :date %>
-      <%= f.input :game, collection: Game.all %>
-      <%= f.input :price %>
-      <%= f.input :city %>
-      <%= f.input :description %>
-      <%= f.submit "add a game-session", class: "btn-flat"%>
-    <% end %>
-    <div class="btn-flat new-gs-btn">
-      <%= link_to "Can't find the best game in the world : I must add it to the list", new_game_path %>
+
+<div class="main-container">
+  <div class="edit-container">
+    <h1>Create you game-session</h1>
+    <div class="edit-form-container">
+      <%= simple_form_for (@game_session), :url => url_for(:action => 'create', :controller => 'game_sessions'), :method => 'post' do |f| %>
+        <%= f.input :date %>
+        <%= f.input :game, collection: Game.all %>
+        <%= f.input :price %>
+        <%= f.input :city %>
+        <%= f.input :description %>
+        <div class="btn-wrapper">
+          <%= f.submit "Add a game-session", class: "btn btn-flat"%>
+        </div>
+      <% end %>
+      <div class="btn-flat new-gs-btn">
+        <%= link_to "Can't find the best game in the world ? Add it to the list!", new_game_path %>
+      </div>
     </div>
   </div>
 </div>
