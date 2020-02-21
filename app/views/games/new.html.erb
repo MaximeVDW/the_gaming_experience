@@ -1,13 +1,17 @@
-<div class="container">
-  <p class="edit-title">What game do you want to add Bichon?</p>
-  <%= simple_form_for @game do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :min_player %>
-    <%= f.input :max_player %>
-    <%= f.input :category %>
-    <%= f.input :photo, as: :file, class: "choose-photo" %>
-    <%= f.submit 'Create Game', class: "btn btn-flat" %>
-  <% end %>
-
+<div class="main-container">
+  <div class="edit-container">
+    <h1>What game do you want to add Bichon?</h1>
+    <div class="edit-form-container">
+      <%= simple_form_for @game do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :min_player %>
+        <%= f.input :max_player %>
+        <%= f.input :category %>
+        <%= f.input :photo, as: :file, class: "choose-photo" %>
+        <%= f.submit 'Create Game', class: "btn btn-flat" %>
+      <% end %>
+    </div>
+  </div>
 </div>
+

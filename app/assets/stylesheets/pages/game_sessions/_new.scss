@@ -9,7 +9,7 @@
 
     background-color: white;
     border: 10px solid $main-red;
-    padding: 40px;
+    padding: 20px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     width: 50vw;
     //height: 60vh;
@@ -23,11 +23,13 @@
     h1 {
       color: $main-red;
       margin: 20px;
+      text-align: center;
     }
 
     .edit-form-container {
-      margin: 20px;
-
+      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 80%;
       .btn-wrapper {
         width: 100%;
         display: flex;
