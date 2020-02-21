@@ -68,3 +68,10 @@
   background-color: white;
 }
 
+.btn-white-link {
+  color: white;
+  &:hover {
+  text-decoration: none;
+  color: white;
+  }
+}
