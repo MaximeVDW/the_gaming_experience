@@ -22,7 +22,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(params_game)
     if @game.save
-      redirect_to games_path
+      redirect_to new_creator_game_session_path
     else
       render :new
     end

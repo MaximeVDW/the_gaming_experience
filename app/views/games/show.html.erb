@@ -3,7 +3,7 @@
   <div class="top-container">
     <h1>The amazing game of <%= @game.name %></h1>
     <div class="btn-join-session">
-      <%= link_to 'Edit Game', edit_game_path(@game), class: "btn btn-flat" %>
+      <%= link_to 'Create Game Session', new_creator_game_session_path, class: "btn btn-flat", style: "font-size: 24px;" %>
     </div>
   </div>
 

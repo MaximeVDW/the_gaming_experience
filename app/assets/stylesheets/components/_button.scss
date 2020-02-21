@@ -47,11 +47,16 @@
 }
 
 .new-gs-btn{
-  margin-top: 50px;
+  margin-top: 20px;
+  background-color: $main-red;
 
   a {
     text-decoration: none;
     color: white;
+  }
+
+  &:hover {
+    background-color: rgba(213, 38, 113, 1);
   }
 }
 
@@ -61,4 +66,12 @@
 
 .btn-white {
   background-color: white;
+}
+
+.btn-white-link {
+  color: white;
+  &:hover {
+  text-decoration: none;
+  color: white;
+  }
 }

@@ -14,7 +14,7 @@
 
   <div class="game-session-content">
     <div class="game-session-show-title">
-      <p><%= @game_session.game.name %></p>
+      <p><%= link_to @game_session.game.name, game_path(@game_session.game), class: "btn-white-link" %></p>
       <p><%= @game_session.date %></p>
       <p><%= @game_session.city %></p>
     </div>
@@ -34,9 +34,9 @@
     </div>
 
     <div class="game-details">
-      <div class="game-image-container">
+      <div class="game-image-container" onclick="location.href='<%= game_path(@game_session.game) %>'", style="cursor: pointer;">
         <% if @game_session.game.photo.attached? %>
-          <%= cl_image_tag @game_session.game.photo.key %>
+          <%= cl_image_tag( @game_session.game.photo.key )%>
         <% else %>
           <%= cl_image_tag("risk_i5wr26.jpg", width: 400, height: 300, crop: :fill) %>
         <% end %>
